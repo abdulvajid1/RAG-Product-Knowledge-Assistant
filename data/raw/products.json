@@ -1,0 +1,142 @@
+[
+  {
+    "product_id": "P001",
+    "product_name": "SolarMax 550",
+    "category": "Solar Panels",
+    "brand": "SolarMax",
+    "supplier": "Vikram Solar Energies Pvt Ltd",
+    "country": "India",
+    "price": 220.0,
+    "short_description": "High-efficiency 550W monocrystalline PERC solar photovoltaic module for commercial installations."
+  },
+  {
+    "product_id": "P002",
+    "product_name": "SolarMax 600",
+    "category": "Solar Panels",
+    "brand": "SolarMax",
+    "supplier": "Vikram Solar Energies Pvt Ltd",
+    "country": "India",
+    "price": 260.0,
+    "short_description": "Next-generation 600W TOPCon bi-facial solar module with enhanced low-light performance."
+  },
+  {
+    "product_id": "P003",
+    "product_name": "SunPower Eco 400",
+    "category": "Solar Panels",
+    "brand": "SunPower",
+    "supplier": "GreenWatt Technologies",
+    "country": "Germany",
+    "price": 180.0,
+    "short_description": "Compact 400W solar panel engineered for residential rooftops and mild climatic regions."
+  },
+  {
+    "product_id": "P004",
+    "product_name": "HelioCell 750 Bifacial",
+    "category": "Solar Panels",
+    "brand": "HelioCell",
+    "supplier": "Aditya Power Systems",
+    "country": "India",
+    "price": 340.0,
+    "short_description": "Heavy utility-scale 750W dual-glass bifacial solar panel with 80% rear-side power boost."
+  },
+  {
+    "product_id": "P005",
+    "product_name": "TerraGrip Pro WorkBoot",
+    "category": "Safety Shoes",
+    "brand": "TerraGrip",
+    "supplier": "Acme Industrial Safety",
+    "country": "India",
+    "price": 65.0,
+    "short_description": "Heavy-duty waterproof construction safety boot with 200J steel toe cap and puncture-resistant Kevlar midsole."
+  },
+  {
+    "product_id": "P006",
+    "product_name": "TerraGrip Ultra Lite",
+    "category": "Safety Shoes",
+    "brand": "TerraGrip",
+    "supplier": "Acme Industrial Safety",
+    "country": "India",
+    "price": 55.0,
+    "short_description": "Lightweight composite-toe safety sneaker with water-resistant leather and SRC slip resistance."
+  },
+  {
+    "product_id": "P007",
+    "product_name": "TitanSteel HeavyDuty 900",
+    "category": "Safety Shoes",
+    "brand": "TitanSteel",
+    "supplier": "Rheinland Workwear GmbH",
+    "country": "Germany",
+    "price": 110.0,
+    "short_description": "Premium German-engineered safety boots with waterproof Sympatex lining, steel toe, and 300\u00b0C heat-resistant nitrile outsole."
+  },
+  {
+    "product_id": "P008",
+    "product_name": "SafeStep Eco Runner",
+    "category": "Safety Shoes",
+    "brand": "SafeStep",
+    "supplier": "Bharat Footwear Mills",
+    "country": "India",
+    "price": 40.0,
+    "short_description": "Economical breathable fiberglass-toe safety shoe for indoor warehouse and logistics operations."
+  },
+  {
+    "product_id": "P009",
+    "product_name": "AquaGuard Marine Boot",
+    "category": "Safety Shoes",
+    "brand": "AquaGuard",
+    "supplier": "Nordic Maritime Supplies",
+    "country": "Norway",
+    "price": 135.0,
+    "short_description": "100% submersible waterproof neoprene safety boot with Vibram non-slip marine sole and composite toe cap."
+  },
+  {
+    "product_id": "P010",
+    "product_name": "SensorTech TempPro PT100",
+    "category": "Industrial Sensors",
+    "brand": "SensorTech",
+    "supplier": "InduSensors India Pvt Ltd",
+    "country": "India",
+    "price": 85.0,
+    "short_description": "RTD Pt100 industrial temperature transmitter with IP67 stainless steel 316L sheath and 4-20mA analog output."
+  },
+  {
+    "product_id": "P011",
+    "product_name": "SensorTech PressureGuard 100",
+    "category": "Industrial Sensors",
+    "brand": "SensorTech",
+    "supplier": "InduSensors India Pvt Ltd",
+    "country": "India",
+    "price": 140.0,
+    "short_description": "Piezoresistive pressure transmitter (0-100 bar) with ceramic sensing cell and IP65 protection."
+  },
+  {
+    "product_id": "P012",
+    "product_name": "OptiFlow Ultrasonic Flowmeter",
+    "category": "Industrial Sensors",
+    "brand": "OptiFlow",
+    "supplier": "Precision Instruments Inc",
+    "country": "USA",
+    "price": 890.0,
+    "short_description": "Clamp-on transit-time ultrasonic liquid flow meter with RS485 Modbus RTU telemetry for DN15-DN6000 pipes."
+  },
+  {
+    "product_id": "P013",
+    "product_name": "VibraSense Wireless IMU",
+    "category": "Industrial Sensors",
+    "brand": "VibraSense",
+    "supplier": "InduSensors India Pvt Ltd",
+    "country": "India",
+    "price": 210.0,
+    "short_description": "Tri-axial wireless condition monitoring vibration sensor with LoRaWAN and BLE 5.0 protocols."
+  },
+  {
+    "product_id": "P014",
+    "product_name": "GasVigil Multi-Gas Detector",
+    "category": "Industrial Sensors",
+    "brand": "GasVigil",
+    "supplier": "Apex Safety Technologies",
+    "country": "USA",
+    "price": 450.0,
+    "short_description": "Portable 4-gas monitor detecting O2, CO, H2S, and LEL combustible gases with ATEX Zone 0 certification."
+  }
+]

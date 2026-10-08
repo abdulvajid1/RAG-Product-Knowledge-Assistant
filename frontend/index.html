@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filumart - Product Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-brand">
+                <h1>Filumart Product Knowledge Assistant</h1>
+                <span class="badge">B2B RAG</span>
+            </div>
+            <div class="header-actions">
+                <button id="clear-chat-btn" class="btn btn-secondary">New Conversation</button>
+            </div>
+        </header>
+
+        <section class="filters-bar">
+            <div class="filter-group">
+                <label for="filter-category">Category</label>
+                <select id="filter-category">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-brand">Brand</label>
+                <select id="filter-brand">
+                    <option value="">All Brands</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-supplier">Supplier</label>
+                <select id="filter-supplier">
+                    <option value="">All Suppliers</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-country">Country</label>
+                <select id="filter-country">
+                    <option value="">All Countries</option>
+                </select>
+            </div>
+        </section>
+
+        <main class="chat-container" id="chat-messages">
+            <div class="message assistant-message">
+                <div class="message-content">
+                    Hello! I am your Filumart Product Knowledge Assistant. Ask me any technical specifications, compliance details, or product comparisons from our knowledge base.
+                </div>
+            </div>
+        </main>
+
+        <div id="error-banner" class="error-banner hidden">
+            <span id="error-text"></span>
+            <button id="retry-btn" class="btn btn-retry">Retry</button>
+        </div>
+
+        <footer class="input-container">
+            <form id="chat-form" class="chat-form">
+                <textarea 
+                    id="query-input" 
+                    placeholder="Ask about product specs, warranties, or compare products... (Press Enter to send, Shift+Enter for newline)" 
+                    rows="2"
+                    required
+                ></textarea>
+                <div class="form-actions">
+                    <button type="submit" id="send-btn" class="btn btn-primary">Send</button>
+                    <button type="button" id="cancel-btn" class="btn btn-danger hidden">Stop</button>
+                </div>
+            </form>
+        </footer>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
+

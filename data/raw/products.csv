@@ -1,0 +1,15 @@
+product_id,product_name,category,brand,supplier,country,price,short_description
+P001,SolarMax 550,Solar Panels,SolarMax,Vikram Solar Energies Pvt Ltd,India,220.0,High-efficiency 550W monocrystalline PERC solar photovoltaic module for commercial installations.
+P002,SolarMax 600,Solar Panels,SolarMax,Vikram Solar Energies Pvt Ltd,India,260.0,Next-generation 600W TOPCon bi-facial solar module with enhanced low-light performance.
+P003,SunPower Eco 400,Solar Panels,SunPower,GreenWatt Technologies,Germany,180.0,Compact 400W solar panel engineered for residential rooftops and mild climatic regions.
+P004,HelioCell 750 Bifacial,Solar Panels,HelioCell,Aditya Power Systems,India,340.0,Heavy utility-scale 750W dual-glass bifacial solar panel with 80% rear-side power boost.
+P005,TerraGrip Pro WorkBoot,Safety Shoes,TerraGrip,Acme Industrial Safety,India,65.0,Heavy-duty waterproof construction safety boot with 200J steel toe cap and puncture-resistant Kevlar midsole.
+P006,TerraGrip Ultra Lite,Safety Shoes,TerraGrip,Acme Industrial Safety,India,55.0,Lightweight composite-toe safety sneaker with water-resistant leather and SRC slip resistance.
+P007,TitanSteel HeavyDuty 900,Safety Shoes,TitanSteel,Rheinland Workwear GmbH,Germany,110.0,"Premium German-engineered safety boots with waterproof Sympatex lining, steel toe, and 300°C heat-resistant nitrile outsole."
+P008,SafeStep Eco Runner,Safety Shoes,SafeStep,Bharat Footwear Mills,India,40.0,Economical breathable fiberglass-toe safety shoe for indoor warehouse and logistics operations.
+P009,AquaGuard Marine Boot,Safety Shoes,AquaGuard,Nordic Maritime Supplies,Norway,135.0,100% submersible waterproof neoprene safety boot with Vibram non-slip marine sole and composite toe cap.
+P010,SensorTech TempPro PT100,Industrial Sensors,SensorTech,InduSensors India Pvt Ltd,India,85.0,RTD Pt100 industrial temperature transmitter with IP67 stainless steel 316L sheath and 4-20mA analog output.
+P011,SensorTech PressureGuard 100,Industrial Sensors,SensorTech,InduSensors India Pvt Ltd,India,140.0,Piezoresistive pressure transmitter (0-100 bar) with ceramic sensing cell and IP65 protection.
+P012,OptiFlow Ultrasonic Flowmeter,Industrial Sensors,OptiFlow,Precision Instruments Inc,USA,890.0,Clamp-on transit-time ultrasonic liquid flow meter with RS485 Modbus RTU telemetry for DN15-DN6000 pipes.
+P013,VibraSense Wireless IMU,Industrial Sensors,VibraSense,InduSensors India Pvt Ltd,India,210.0,Tri-axial wireless condition monitoring vibration sensor with LoRaWAN and BLE 5.0 protocols.
+P014,GasVigil Multi-Gas Detector,Industrial Sensors,GasVigil,Apex Safety Technologies,USA,450.0,"Portable 4-gas monitor detecting O2, CO, H2S, and LEL combustible gases with ATEX Zone 0 certification."

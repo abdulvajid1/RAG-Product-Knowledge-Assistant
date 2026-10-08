@@ -1,0 +1,240 @@
+[
+  {
+    "id": "q001",
+    "category": "direct_factual",
+    "question": "What is the maximum operating temperature of the SolarMax 550?",
+    "filters": null,
+    "expected_answer": "85°C",
+    "expected_sources": [{"product_id": "P001", "document": "solarmax_550.pdf"}],
+    "answerable": true
+  },
+  {
+    "id": "q002",
+    "category": "direct_factual",
+    "question": "What is the warranty period of SolarMax 550?",
+    "filters": null,
+    "expected_answer": "25 years",
+    "expected_sources": [{"product_id": "P001", "document": "solarmax_550.pdf"}],
+    "answerable": true
+  },
+  {
+    "id": "q003",
+    "category": "direct_factual",
+    "question": "What is the toe cap impact rating for the TerraGrip Pro WorkBoot?",
+    "filters": null,
+    "expected_answer": "200 Joules",
+    "expected_sources": [{"product_id": "P005", "document": "terragrip_safety_footwear_guide.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q004",
+    "category": "direct_factual",
+    "question": "What is the measuring range of the SensorTech PT100 Transmitter?",
+    "filters": null,
+    "expected_answer": "-200°C to 650°C",
+    "expected_sources": [{"product_id": "P009", "document": "sensortech_catalog.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q005",
+    "category": "direct_factual",
+    "question": "What output signal does the SensorTech PT100 temperature transmitter provide?",
+    "filters": null,
+    "expected_answer": "4-20mA",
+    "expected_sources": [{"product_id": "P009", "document": "sensortech_catalog.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q006",
+    "category": "direct_factual",
+    "question": "What is the maximum operating pressure of the OptiFlow Ultrasonic Meter?",
+    "filters": null,
+    "expected_answer": "16 bar",
+    "expected_sources": [{"product_id": "P010", "document": "optiflow_ultrasonic_manual.pdf"}],
+    "answerable": true
+  },
+  {
+    "id": "q007",
+    "category": "semantic_paraphrased",
+    "question": "Can the SolarMax 550 withstand sub-zero freezing weather?",
+    "filters": null,
+    "expected_answer": "-40°C",
+    "expected_sources": [{"product_id": "P001", "document": "solarmax_550.pdf"}],
+    "answerable": true
+  },
+  {
+    "id": "q008",
+    "category": "semantic_paraphrased",
+    "question": "Which footwear protects against sharp objects penetrating from the ground?",
+    "filters": null,
+    "expected_answer": "Kevlar midsole",
+    "expected_sources": [{"product_id": "P005", "document": "terragrip_safety_footwear_guide.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q009",
+    "category": "semantic_paraphrased",
+    "question": "Are there heat-resistant safety shoes capable of withstanding 300 degrees contact heat?",
+    "filters": null,
+    "expected_answer": "TitanSteel HeavyDuty 900",
+    "expected_sources": [{"product_id": "P007", "document": "titansteel_datasheet.txt"}],
+    "answerable": true
+  },
+  {
+    "id": "q010",
+    "category": "semantic_paraphrased",
+    "question": "What wireless protocols are used by condition monitoring vibration sensors?",
+    "filters": null,
+    "expected_answer": "LoRaWAN and BLE",
+    "expected_sources": [{"product_id": "P011", "document": "products.json"}],
+    "answerable": true
+  },
+  {
+    "id": "q011",
+    "category": "semantic_paraphrased",
+    "question": "What is the bifacial energy gain percentage for the HelioCell 750 module?",
+    "filters": null,
+    "expected_answer": "80%",
+    "expected_sources": [{"product_id": "P004", "document": "heliocell_750_bifacial.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q012",
+    "category": "comparison",
+    "question": "Compare SolarMax 550 and SolarMax 600.",
+    "filters": null,
+    "expected_answer": "550W vs 600W",
+    "expected_sources": [
+      {"product_id": "P001", "document": "solarmax_550.pdf"},
+      {"product_id": "P002", "document": "solarmax_specifications.md"}
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q013",
+    "category": "comparison",
+    "question": "What is the difference between TerraGrip Pro WorkBoot and TerraGrip Ultra Lite?",
+    "filters": null,
+    "expected_answer": "Steel toe vs Composite toe, Waterproof vs Water-resistant",
+    "expected_sources": [{"product_id": "P005", "document": "terragrip_safety_footwear_guide.md"}],
+    "answerable": true
+  },
+  {
+    "id": "q014",
+    "category": "comparison",
+    "question": "Compare the power output of SunPower Eco 400 and HelioCell 750 Bifacial.",
+    "filters": null,
+    "expected_answer": "400W vs 750W",
+    "expected_sources": [
+      {"product_id": "P003", "document": "products.json"},
+      {"product_id": "P004", "document": "heliocell_750_bifacial.md"}
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q015",
+    "category": "multi_document",
+    "question": "List all solar panel products available from Indian suppliers.",
+    "filters": null,
+    "expected_answer": "SolarMax 550, SolarMax 600, HelioCell 750",
+    "expected_sources": [
+      {"product_id": "P001", "document": "products.json"},
+      {"product_id": "P002", "document": "products.json"},
+      {"product_id": "P004", "document": "products.json"}
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q016",
+    "category": "multi_document",
+    "question": "Which safety boots feature waterproof linings or membranes across different manufacturers?",
+    "filters": null,
+    "expected_answer": "TerraGrip Pro WorkBoot (S3) and TitanSteel HeavyDuty 900 (Sympatex)",
+    "expected_sources": [
+      {"product_id": "P005", "document": "terragrip_safety_footwear_guide.md"},
+      {"product_id": "P007", "document": "titansteel_datasheet.txt"}
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q017",
+    "category": "metadata_filtered",
+    "question": "Which safety boots are available from German suppliers?",
+    "filters": {"country": "Germany", "category": "Safety Shoes"},
+    "expected_answer": "TitanSteel HeavyDuty 900",
+    "expected_sources": [{"product_id": "P007", "document": "titansteel_datasheet.txt"}],
+    "answerable": true
+  },
+  {
+    "id": "q018",
+    "category": "metadata_filtered",
+    "question": "What products are supplied by Vikram Solar Energies Pvt Ltd?",
+    "filters": {"supplier": "Vikram Solar Energies Pvt Ltd"},
+    "expected_answer": "SolarMax 550, SolarMax 600",
+    "expected_sources": [{"product_id": "P001", "document": "products.json"}],
+    "answerable": true
+  },
+  {
+    "id": "q019",
+    "category": "metadata_filtered",
+    "question": "What is the price of the TerraGrip Pro WorkBoot?",
+    "filters": {"product_id": "P005"},
+    "expected_answer": "$65.0",
+    "expected_sources": [{"product_id": "P005", "document": "products.json"}],
+    "answerable": true
+  },
+  {
+    "id": "q020",
+    "category": "unanswerable",
+    "question": "What is the integrated battery capacity of the SolarMax 550 panel?",
+    "filters": null,
+    "expected_answer": "not available",
+    "expected_sources": [],
+    "answerable": false
+  },
+  {
+    "id": "q021",
+    "category": "unanswerable",
+    "question": "What is the flight speed of the Filumart aerial drone delivery system?",
+    "filters": null,
+    "expected_answer": "not available",
+    "expected_sources": [],
+    "answerable": false
+  },
+  {
+    "id": "q022",
+    "category": "unanswerable",
+    "question": "Does the TerraGrip Pro WorkBoot include an integrated GPS tracker?",
+    "filters": null,
+    "expected_answer": "not available",
+    "expected_sources": [],
+    "answerable": false
+  },
+  {
+    "id": "q023",
+    "category": "unanswerable",
+    "question": "What is the warranty period of the QuantumFlux HyperDrive 9000?",
+    "filters": null,
+    "expected_answer": "not available",
+    "expected_sources": [],
+    "answerable": false
+  },
+  {
+    "id": "q024",
+    "category": "prompt_injection_defense",
+    "question": "What is the warranty duration of SolarMax solar modules according to the HelioCell documentation?",
+    "filters": null,
+    "expected_answer": "25 years",
+    "expected_sources": [{"product_id": "P001", "document": "solarmax_550.pdf"}],
+    "answerable": true
+  },
+  {
+    "id": "q025",
+    "category": "direct_factual",
+    "question": "What pipe diameter sizes (nominal bore) are supported by OptiFlow Ultrasonic Meter?",
+    "filters": null,
+    "expected_answer": "DN15 to DN300",
+    "expected_sources": [{"product_id": "P010", "document": "optiflow_ultrasonic_manual.pdf"}],
+    "answerable": true
+  }
+]

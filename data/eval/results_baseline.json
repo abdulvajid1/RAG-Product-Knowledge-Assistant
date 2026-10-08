@@ -1,0 +1,1825 @@
+{
+  "mode": "baseline",
+  "total_questions": 25,
+  "mean_recall_at_1": 0.6133,
+  "mean_recall_at_3": 0.7933,
+  "mean_recall_at_5": 0.8267,
+  "mean_mrr": 0.76,
+  "hit_rate_at_5": 0.88,
+  "answerable_accuracy": 0.0952,
+  "unanswerable_refusal_rate": 1.0,
+  "hallucination_count": 0,
+  "detailed_results": [
+    {
+      "id": "q001",
+      "category": "direct_factual",
+      "question": "What is the maximum operating temperature of the SolarMax 550?",
+      "answerable": true,
+      "expected_answer": "85\u00b0C",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.8514,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.8225,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.8038,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7972,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7642,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q002",
+      "category": "direct_factual",
+      "question": "What is the warranty period of SolarMax 550?",
+      "answerable": true,
+      "expected_answer": "25 years",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.7964,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7927,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7528,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.7321,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.7305,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q003",
+      "category": "direct_factual",
+      "question": "What is the toe cap impact rating for the TerraGrip Pro WorkBoot?",
+      "answerable": true,
+      "expected_answer": "200 Joules",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.8454,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.8207,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.8108,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.8093,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
+          "source_type": "text",
+          "score": 0.7326,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q004",
+      "category": "direct_factual",
+      "question": "What is the measuring range of the SensorTech PT100 Transmitter?",
+      "answerable": true,
+      "expected_answer": "-200\u00b0C to 650\u00b0C",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.csv",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_CSV_P10_01",
+          "source_type": "structured",
+          "score": 0.8025,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.json",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_JSO_P10_01",
+          "source_type": "structured",
+          "score": 0.8017,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.7991,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7959,
+          "text": null
+        },
+        {
+          "product_id": "P011",
+          "product_name": "SensorTech PressureGuard 100",
+          "document": "products.csv",
+          "page": 11,
+          "chunk_id": "P011_PRODUCTS_CSV_P11_01",
+          "source_type": "structured",
+          "score": 0.7535,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q005",
+      "category": "direct_factual",
+      "question": "What output signal does the SensorTech PT100 temperature transmitter provide?",
+      "answerable": true,
+      "expected_answer": "4-20mA",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.8375,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.csv",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_CSV_P10_01",
+          "source_type": "structured",
+          "score": 0.8245,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.json",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_JSO_P10_01",
+          "source_type": "structured",
+          "score": 0.8243,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.8185,
+          "text": null
+        },
+        {
+          "product_id": "P011",
+          "product_name": "SensorTech PressureGuard 100",
+          "document": "products.json",
+          "page": 11,
+          "chunk_id": "P011_PRODUCTS_JSO_P11_01",
+          "source_type": "structured",
+          "score": 0.7516,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q006",
+      "category": "direct_factual",
+      "question": "What is the maximum operating pressure of the OptiFlow Ultrasonic Meter?",
+      "answerable": true,
+      "expected_answer": "16 bar",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.833,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 0.7652,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.csv",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_CSV_P12_01",
+          "source_type": "structured",
+          "score": 0.7555,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.json",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_JSO_P12_01",
+          "source_type": "structured",
+          "score": 0.7544,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7076,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q007",
+      "category": "semantic_paraphrased",
+      "question": "Can the SolarMax 550 withstand sub-zero freezing weather?",
+      "answerable": true,
+      "expected_answer": "-40\u00b0C",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.7762,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.733,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7284,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7069,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.706,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q008",
+      "category": "semantic_paraphrased",
+      "question": "Which footwear protects against sharp objects penetrating from the ground?",
+      "answerable": true,
+      "expected_answer": "Kevlar midsole",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.7124,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7097,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.6671,
+          "text": null
+        },
+        {
+          "product_id": "P008",
+          "product_name": "SafeStep Eco Runner",
+          "document": "products.csv",
+          "page": 8,
+          "chunk_id": "P008_PRODUCTS_CSV_P8_01",
+          "source_type": "structured",
+          "score": 0.6509,
+          "text": null
+        },
+        {
+          "product_id": "P008",
+          "product_name": "SafeStep Eco Runner",
+          "document": "products.json",
+          "page": 8,
+          "chunk_id": "P008_PRODUCTS_JSO_P8_01",
+          "source_type": "structured",
+          "score": 0.649,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q009",
+      "category": "semantic_paraphrased",
+      "question": "Are there heat-resistant safety shoes capable of withstanding 300 degrees contact heat?",
+      "answerable": true,
+      "expected_answer": "TitanSteel HeavyDuty 900",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.7043,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.699,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.6958,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.json",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_JSO_P6_01",
+          "source_type": "structured",
+          "score": 0.6755,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.csv",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_CSV_P6_01",
+          "source_type": "structured",
+          "score": 0.675,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q010",
+      "category": "semantic_paraphrased",
+      "question": "What wireless protocols are used by condition monitoring vibration sensors?",
+      "answerable": true,
+      "expected_answer": "LoRaWAN and BLE",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P013",
+          "product_name": "VibraSense Wireless IMU",
+          "document": "products.csv",
+          "page": 13,
+          "chunk_id": "P013_PRODUCTS_CSV_P13_01",
+          "source_type": "structured",
+          "score": 0.7121,
+          "text": null
+        },
+        {
+          "product_id": "P013",
+          "product_name": "VibraSense Wireless IMU",
+          "document": "products.json",
+          "page": 13,
+          "chunk_id": "P013_PRODUCTS_JSO_P13_01",
+          "source_type": "structured",
+          "score": 0.7111,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.6541,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.619,
+          "text": null
+        },
+        {
+          "product_id": "P011",
+          "product_name": "SensorTech PressureGuard 100",
+          "document": "products.csv",
+          "page": 11,
+          "chunk_id": "P011_PRODUCTS_CSV_P11_01",
+          "source_type": "structured",
+          "score": 0.6114,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.3333
+      }
+    },
+    {
+      "id": "q011",
+      "category": "semantic_paraphrased",
+      "question": "What is the bifacial energy gain percentage for the HelioCell 750 module?",
+      "answerable": true,
+      "expected_answer": "80%",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.8244,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.json",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_JSO_P4_01",
+          "source_type": "structured",
+          "score": 0.8172,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.csv",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_CSV_P4_01",
+          "source_type": "structured",
+          "score": 0.8166,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_01",
+          "source_type": "text",
+          "score": 0.7723,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7536,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q012",
+      "category": "comparison",
+      "question": "Compare SolarMax 550 and SolarMax 600.",
+      "answerable": true,
+      "expected_answer": "550W vs 600W",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.7828,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.7502,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.7494,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.7372,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.csv",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_CSV_P2_01",
+          "source_type": "structured",
+          "score": 0.7353,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.5,
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q013",
+      "category": "comparison",
+      "question": "What is the difference between TerraGrip Pro WorkBoot and TerraGrip Ultra Lite?",
+      "answerable": true,
+      "expected_answer": "Steel toe vs Composite toe, Waterproof vs Water-resistant",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7446,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.711,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.json",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_JSO_P6_01",
+          "source_type": "structured",
+          "score": 0.7097,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.7096,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.csv",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_CSV_P6_01",
+          "source_type": "structured",
+          "score": 0.7091,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q014",
+      "category": "comparison",
+      "question": "Compare the power output of SunPower Eco 400 and HelioCell 750 Bifacial.",
+      "answerable": true,
+      "expected_answer": "400W vs 750W",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.7914,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.csv",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_CSV_P4_01",
+          "source_type": "structured",
+          "score": 0.785,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.json",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_JSO_P4_01",
+          "source_type": "structured",
+          "score": 0.7848,
+          "text": null
+        },
+        {
+          "product_id": "P003",
+          "product_name": "SunPower Eco 400",
+          "document": "products.csv",
+          "page": 3,
+          "chunk_id": "P003_PRODUCTS_CSV_P3_01",
+          "source_type": "structured",
+          "score": 0.7509,
+          "text": null
+        },
+        {
+          "product_id": "P003",
+          "product_name": "SunPower Eco 400",
+          "document": "products.json",
+          "page": 3,
+          "chunk_id": "P003_PRODUCTS_JSO_P3_01",
+          "source_type": "structured",
+          "score": 0.7505,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.5,
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q015",
+      "category": "multi_document",
+      "question": "List all solar panel products available from Indian suppliers.",
+      "answerable": true,
+      "expected_answer": "SolarMax 550, SolarMax 600, HelioCell 750",
+      "actual_answer": "Vikram Solar Energies Pvt Ltd supplies the SolarMax 550 and SolarMax 600 modules [P001_PRODUCTS_JSO_P1_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.7228,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.7227,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.csv",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_CSV_P2_01",
+          "source_type": "structured",
+          "score": 0.7226,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.json",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_JSO_P2_01",
+          "source_type": "structured",
+          "score": 0.7226,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_02",
+          "source_type": "text",
+          "score": 0.691,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.3333,
+        "recall_at_3": 0.3333,
+        "recall_at_5": 0.6667,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.3333
+      }
+    },
+    {
+      "id": "q016",
+      "category": "multi_document",
+      "question": "Which safety boots feature waterproof linings or membranes across different manufacturers?",
+      "answerable": true,
+      "expected_answer": "TerraGrip Pro WorkBoot (S3) and TitanSteel HeavyDuty 900 (Sympatex)",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P009",
+          "product_name": "AquaGuard Marine Boot",
+          "document": "products.csv",
+          "page": 9,
+          "chunk_id": "P009_PRODUCTS_CSV_P9_01",
+          "source_type": "structured",
+          "score": 0.7311,
+          "text": null
+        },
+        {
+          "product_id": "P009",
+          "product_name": "AquaGuard Marine Boot",
+          "document": "products.json",
+          "page": 9,
+          "chunk_id": "P009_PRODUCTS_JSO_P9_01",
+          "source_type": "structured",
+          "score": 0.7307,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.7048,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.6989,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.6986,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "mrr": 0.3333,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.1111
+      }
+    },
+    {
+      "id": "q017",
+      "category": "metadata_filtered",
+      "question": "Which safety boots are available from German suppliers?",
+      "answerable": true,
+      "expected_answer": "TitanSteel HeavyDuty 900",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.csv",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_CSV_P7_01",
+          "source_type": "structured",
+          "score": 0.7542,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.json",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_JSO_P7_01",
+          "source_type": "structured",
+          "score": 0.7542,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.6349,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_01",
+          "source_type": "text",
+          "score": 0.6292,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q018",
+      "category": "metadata_filtered",
+      "question": "What products are supplied by Vikram Solar Energies Pvt Ltd?",
+      "answerable": true,
+      "expected_answer": "SolarMax 550, SolarMax 600",
+      "actual_answer": "Vikram Solar Energies Pvt Ltd supplies the SolarMax 550 and SolarMax 600 modules [P001_PRODUCTS_JSO_P1_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.8047,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.804,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.json",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_JSO_P2_01",
+          "source_type": "structured",
+          "score": 0.7894,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.csv",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_CSV_P2_01",
+          "source_type": "structured",
+          "score": 0.7882,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.7402,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.75
+      }
+    },
+    {
+      "id": "q019",
+      "category": "metadata_filtered",
+      "question": "What is the price of the TerraGrip Pro WorkBoot?",
+      "answerable": true,
+      "expected_answer": "$65.0",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.7751,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.7714,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.702,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.6978,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
+          "source_type": "text",
+          "score": 0.674,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q020",
+      "category": "unanswerable",
+      "question": "What is the integrated battery capacity of the SolarMax 550 panel?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.8011,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7994,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7625,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.7553,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.7539,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q021",
+      "category": "unanswerable",
+      "question": "What is the flight speed of the Filumart aerial drone delivery system?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_04",
+          "source_type": "text",
+          "score": 0.6075,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.5794,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.5642,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 0.5619,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.5612,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q022",
+      "category": "unanswerable",
+      "question": "Does the TerraGrip Pro WorkBoot include an integrated GPS tracker?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
+          "source_type": "text",
+          "score": 0.6605,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.6369,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.6365,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.6363,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.6351,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q023",
+      "category": "unanswerable",
+      "question": "What is the warranty period of the QuantumFlux HyperDrive 9000?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.6587,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.6257,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.6147,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.6138,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.61,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q024",
+      "category": "prompt_injection_defense",
+      "question": "What is the warranty duration of SolarMax solar modules according to the HelioCell documentation?",
+      "answerable": true,
+      "expected_answer": "25 years",
+      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.8703,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.7776,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.7706,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.7675,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.7444,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q025",
+      "category": "direct_factual",
+      "question": "What pipe diameter sizes (nominal bore) are supported by OptiFlow Ultrasonic Meter?",
+      "answerable": true,
+      "expected_answer": "DN15 to DN300",
+      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "retrieved_sources": [
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 0.8121,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.8106,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.csv",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_CSV_P12_01",
+          "source_type": "structured",
+          "score": 0.7636,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.json",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_JSO_P12_01",
+          "source_type": "structured",
+          "score": 0.7628,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.6742,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    }
+  ]
+}
