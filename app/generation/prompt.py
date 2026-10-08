@@ -43,16 +43,26 @@ def sanitize_context_for_injection(context: str) -> str:
     return sanitized
 
 
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import BaseMessage
+
+
 class PromptBuilder:
     """Constructs grounded, injection-resistant prompts for LLM generation."""
 
     def __init__(self, system_prompt: Optional[str] = None):
         self.system_prompt = system_prompt or SYSTEM_PROMPT
+        self._template = ChatPromptTemplate.from_messages([
+            ("system", "{system_prompt}"),
+            ("human", "{user_content}"),
+        ])
 
-    def build_messages(self, query: str, context: str) -> List[Dict[str, str]]:
-        """
-        Build chat message payload (system + user) with untrusted context tags.
-        """
+    def get_prompt_template(self) -> ChatPromptTemplate:
+        """Return underlying LangChain ChatPromptTemplate."""
+        return self._template
+
+    def build_user_content(self, query: str, context: str) -> str:
+        """Construct sanitized user prompt content with grounded context and instructions."""
         clean_context = sanitize_context_for_injection(context.strip()) if context else ""
         clean_query = query.strip()
 
@@ -64,7 +74,7 @@ class PromptBuilder:
             )
 
         if not clean_context:
-            user_content = (
+            return (
                 f"QUESTION:\n{clean_query}\n\n"
                 f"CONTEXT:\n<context>\n(No relevant documents found in knowledge base)\n</context>\n\n"
                 f"INSTRUCTIONS:\n"
@@ -72,7 +82,7 @@ class PromptBuilder:
                 f"State that the requested information is not available in the provided knowledge base."
             )
         else:
-            user_content = (
+            return (
                 f"CONTEXT:\n"
                 f"<context>\n"
                 f"{clean_context}\n"
@@ -85,6 +95,19 @@ class PromptBuilder:
                 f"Do not invent facts. If missing from context, state that it is not documented."
             )
 
+    def format_messages(self, query: str, context: str) -> List[BaseMessage]:
+        """Format as LangChain BaseMessage instances (SystemMessage and HumanMessage)."""
+        user_content = self.build_user_content(query, context)
+        return self._template.format_messages(
+            system_prompt=self.system_prompt,
+            user_content=user_content,
+        )
+
+    def build_messages(self, query: str, context: str) -> List[Dict[str, str]]:
+        """
+        Build chat message payload (system + user) with untrusted context tags.
+        """
+        user_content = self.build_user_content(query, context)
         return [
             {"role": "system", "content": self.system_prompt},
             {"role": "user", "content": user_content},

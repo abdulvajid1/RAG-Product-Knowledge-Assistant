@@ -1,7 +1,8 @@
 import re
 import logging
 from typing import List, Tuple, Dict, Any, Optional
-from rank_bm25 import BM25Okapi
+from langchain_community.retrievers.bm25 import BM25Retriever
+from langchain_core.documents import Document
 
 from app.ingestion.models import Chunk
 
@@ -18,24 +19,33 @@ def tokenize_for_bm25(text: str) -> List[str]:
 
 
 class BM25Searcher:
-    """In-memory BM25 index for exact token and model number matching."""
+    """In-memory BM25 index powered by LangChain BM25Retriever."""
 
     def __init__(self, chunks: Optional[List[Chunk]] = None):
         self.chunks: List[Chunk] = []
-        self.corpus_tokens: List[List[str]] = []
-        self.bm25: Optional[BM25Okapi] = None
+        self._retriever: Optional[BM25Retriever] = None
         if chunks:
             self.index_chunks(chunks)
 
     def index_chunks(self, chunks: List[Chunk]) -> None:
-        """Build BM25 index from a list of chunks."""
+        """Build BM25 index from a list of chunks using LangChain Document."""
         self.chunks = chunks
-        self.corpus_tokens = [tokenize_for_bm25(c.text) for c in chunks]
-        if self.corpus_tokens:
-            self.bm25 = BM25Okapi(self.corpus_tokens)
-            logger.info(f"Built BM25 index with {len(chunks)} chunks.")
+        if chunks:
+            docs = [c.to_document() for c in chunks]
+            self._retriever = BM25Retriever.from_documents(
+                docs,
+                preprocess_func=tokenize_for_bm25,
+                k=len(chunks),
+            )
+            logger.info(f"Built LangChain BM25 index with {len(chunks)} chunks.")
         else:
-            self.bm25 = None
+            self._retriever = None
+
+    def get_retriever(self, k: int = 10) -> Optional[BM25Retriever]:
+        """Access underlying LangChain BM25Retriever instance."""
+        if self._retriever:
+            self._retriever.k = k
+        return self._retriever
 
     def search(
         self,
@@ -47,14 +57,14 @@ class BM25Searcher:
         Rank chunks using BM25 with optional metadata pre-filtering.
         Returns list of (Chunk, normalized_score) descending.
         """
-        if not self.bm25 or not self.chunks:
+        if not self._retriever or not self.chunks:
             return []
 
         query_tokens = tokenize_for_bm25(query)
         if not query_tokens:
             return []
 
-        raw_scores = self.bm25.get_scores(query_tokens)
+        raw_scores = self._retriever.vectorizer.get_scores(query_tokens)
         max_score = max(raw_scores) if max(raw_scores) > 0 else 1.0
 
         scored_chunks: List[Tuple[Chunk, float]] = []

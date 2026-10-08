@@ -43,6 +43,20 @@ class BaselineRetriever:
         self.score_threshold = score_threshold if score_threshold is not None else settings.score_threshold
         self.context_builder = ContextBuilder(max_context_chars=max_context_chars)
 
+    def as_langchain_retriever(
+        self,
+        top_k: Optional[int] = None,
+        filters: Optional[Dict[str, Any]] = None,
+    ):
+        """Return a LangChain BaseRetriever adapter."""
+        from app.retrieval.hybrid import VectorStoreRetriever
+        return VectorStoreRetriever(
+            vector_store=self.vector_store,
+            embedder=self.embedder,
+            k=top_k or self.top_k,
+            filters=filters,
+        )
+
     def retrieve(
         self,
         query: str,

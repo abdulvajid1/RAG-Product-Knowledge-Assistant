@@ -99,7 +99,7 @@ def create_app() -> FastAPI:
         async def serve_index():
             index_path = os.path.join(frontend_dir, "index.html")
             if os.path.exists(index_path):
-                return FileResponse(index_path)
+                return FileResponse(index_path, headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
             return {"message": "Filumart Product Knowledge Assistant API is running."}
 
     return app

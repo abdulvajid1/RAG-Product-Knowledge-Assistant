@@ -6,9 +6,9 @@
   "mean_recall_at_5": 0.8867,
   "mean_mrr": 0.7,
   "hit_rate_at_5": 0.92,
-  "answerable_accuracy": 0.0476,
-  "unanswerable_refusal_rate": 1.0,
-  "hallucination_count": 0,
+  "answerable_accuracy": 0.5238,
+  "unanswerable_refusal_rate": 0.75,
+  "hallucination_count": 1,
   "detailed_results": [
     {
       "id": "q001",
@@ -16,7 +16,7 @@
       "question": "What is the maximum operating temperature of the SolarMax 550?",
       "answerable": true,
       "expected_answer": "85\u00b0C",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The maximum operating temperature of the SolarMax\u202f550 is **85\u202f\u00b0C**\u3010P001_SOLARMAX55_P2_01\u3011\u3010DOC_SOLARMAXSP_MD_P1_03\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -89,7 +89,7 @@
       "question": "What is the warranty period of SolarMax 550?",
       "answerable": true,
       "expected_answer": "25 years",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The SolarMax\u202f550 carries a **25\u2011year linear power\u2011output warranty** and a **12\u2011year product workmanship warranty**.  \n[ P001_SOLARMAX55_P2_01 ] [ DOC_SOLARMAXSP_MD_P1_03 ]",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -162,7 +162,7 @@
       "question": "What is the toe cap impact rating for the TerraGrip Pro WorkBoot?",
       "answerable": true,
       "expected_answer": "200 Joules",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The TerraGrip Pro WorkBoot (P005) has a toe cap impact rating of **200\u202fJoules**\u3010P005_TERRAGRIPS_MD_P1_02\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -223,10 +223,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -235,7 +235,7 @@
       "question": "What is the measuring range of the SensorTech PT100 Transmitter?",
       "answerable": true,
       "expected_answer": "-200\u00b0C to 650\u00b0C",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The SensorTech TempPro PT100 (P010) measures temperatures in the range of **\u201150\u202f\u00b0C to 400\u202f\u00b0C**\u3010P010_SENSORTECH_MD_P1_02\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P010",
@@ -308,7 +308,7 @@
       "question": "What output signal does the SensorTech PT100 temperature transmitter provide?",
       "answerable": true,
       "expected_answer": "4-20mA",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The SensorTech TempPro PT100 (P010) temperature transmitter provides a **4\u201120\u202fmA 2\u2011wire analog loop** output signal. [P010_SENSORTECH_MD_P1_02]",
       "retrieved_sources": [
         {
           "product_id": "P010",
@@ -381,7 +381,7 @@
       "question": "What is the maximum operating pressure of the OptiFlow Ultrasonic Meter?",
       "answerable": true,
       "expected_answer": "16 bar",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The maximum operating pressure of the OptiFlow Ultrasonic Flowmeter is **not documented** in the provided context. [P012_OPTIFLOWUL_P1_01] [DOC_OPTIFLOWUL_P2_01]",
       "retrieved_sources": [
         {
           "product_id": "P012",
@@ -454,7 +454,7 @@
       "question": "Can the SolarMax 550 withstand sub-zero freezing weather?",
       "answerable": true,
       "expected_answer": "-40\u00b0C",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "Yes. The SolarMax\u202f550\u2019s operating temperature range is listed as **\u201140\u202f\u00b0C to 85\u202f\u00b0C**\u3010P001_SOLARMAX55_P2_01\u3011\u3010DOC_SOLARMAXSP_MD_P1_03\u3011, indicating it is designed to function in sub\u2011zero freezing conditions.",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -527,7 +527,7 @@
       "question": "Which footwear protects against sharp objects penetrating from the ground?",
       "answerable": true,
       "expected_answer": "Kevlar midsole",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The **TerraGrip Pro WorkBoot (P005)** protects against sharp objects penetrating from the ground, thanks to its puncture\u2011resistant high\u2011tensile Kevlar midsole that resists penetration up to 1100\u202fN.  \nThe TerraGrip Ultra Lite (P006) does not list any puncture\u2011resistance feature.  \n\n[Chunk\u202fP005_TERRAGRIPS_MD_P1_02]",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -588,10 +588,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -600,7 +600,7 @@
       "question": "Are there heat-resistant safety shoes capable of withstanding 300 degrees contact heat?",
       "answerable": true,
       "expected_answer": "TitanSteel HeavyDuty 900",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "Yes.  \nThe TitanSteel HeavyDuty\u202f900 safety boot is specifically designed with a nitrile rubber sole that can withstand contact heat up to **300\u202f\u00b0C for 60\u202fseconds**\u3010P007_TITANSTEEL_TXT_P1_02\u3011.  \nIn contrast, the TerraGrip Pro WorkBoot\u2019s outsole is rated for thermal contact up to **200\u202f\u00b0C**\u3010P005_TERRAGRIPS_MD_P1_02\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P007",
@@ -661,10 +661,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -673,7 +673,7 @@
       "question": "What wireless protocols are used by condition monitoring vibration sensors?",
       "answerable": true,
       "expected_answer": "LoRaWAN and BLE",
-      "actual_answer": "The SensorTech PT100 temperature transmitter provides a 4-20mA analog current loop output signal [P009_SENSORTEC_MD_P1_01]. ",
+      "actual_answer": "The condition\u2011monitoring vibration sensor listed in the catalogue (VibraSense Wireless IMU, P013) uses **LoRaWAN** and **BLE\u202f5.0** as its wireless communication protocols. [P013_PRODUCTS_CSV_P13_01]",
       "retrieved_sources": [
         {
           "product_id": "P013",
@@ -734,10 +734,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -746,7 +746,7 @@
       "question": "What is the bifacial energy gain percentage for the HelioCell 750 module?",
       "answerable": true,
       "expected_answer": "80%",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The HelioCell\u202f750 module has a bifaciality coefficient of **80\u202f%\u202f\u00b1\u202f5\u202f%**\u3010P004_HELIOCELL7_MD_P1_02\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -819,7 +819,7 @@
       "question": "Compare SolarMax 550 and SolarMax 600.",
       "answerable": true,
       "expected_answer": "550W vs 600W",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "**Comparison of SolarMax 550 (P001) vs. SolarMax 600 (P002)**  \n\n| Specification | SolarMax\u202f550 (P001) | SolarMax\u202f600 (P002) |\n|---------------|---------------------|---------------------|\n| Product Name | SolarMax\u202f550 | SolarMax\u202f600 |\n| Model Identifier | SM\u2011550\u2011PERC | SM\u2011600\u2011TOPCON |\n| Manufacturer | Vikram Solar Energies Pvt\u202fLtd | Vikram Solar Energies Pvt\u202fLtd |\n| Country of Origin | India | India |\n| Maximum Power Output (Pmax) | 550\u202fW | 600\u202fW |\n| Module Efficiency | 21.3\u202f% | 21.8\u202f% |\n| Operating Temperature Range | \u201340\u202f\u00b0C\u202f\u2192\u202f85\u202f\u00b0C | \u201340\u202f\u00b0C\u202f\u2192\u202f85\u202f\u00b0C |\n| Temperature Coefficient of Pmax | \u20130.35\u202f%/\u00b0C | \u20130.30\u202f%/\u00b0C |\n| Maximum System Voltage | 1500\u202fV\u202fDC | 1500\u202fV\u202fDC |\n| Dimensions (mm) | 2278\u202f\u00d7\u202f1134\u202f\u00d7\u202f35 | 2465\u202f\u00d7\u202f1134\u202f\u00d7\u202f35 |\n| Weight (kg) | 28.5 | 31.0 |\n| Linear Power Output Warranty | 25\u202fyears (84.8\u202f% performance at Year\u202f25) | 30\u202fyears |\n| Workmanship Warranty | 12\u202fyears | 15\u202fyears |\n| Certifications | IEC\u202f61215, IEC\u202f61730, CE, ISO\u202f9001, ISO\u202f14001 | IEC\u202f61215, IEC\u202f61730, UL\u202f61730, CE |\n| Bifaciality Factor | Not documented | 80\u202f% |\n| Maximum Snow Load | 5400\u202fPa | Not documented |\n| Operational Maximum Wind Load | 2400\u202fPa | Not documented |\n| Notice | No integrated battery storage; battery must be procured separately | Dual\u2011glass bifacial design with 80\u202f% bifaciality; battery capacity not documented |\n\n**Sources**  \n- SolarMax\u202f550 specs: [P001_03], [P001_02]  \n- SolarMax\u202f600 specs: [P002_04], [P002_02]  \n\n*All values are taken directly from the supplied context; any unspecified data is marked \u201cNot documented.\u201d*",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -892,7 +892,7 @@
       "question": "What is the difference between TerraGrip Pro WorkBoot and TerraGrip Ultra Lite?",
       "answerable": true,
       "expected_answer": "Steel toe vs Composite toe, Waterproof vs Water-resistant",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "**Comparison of TerraGrip Pro WorkBoot (P005) vs. TerraGrip Ultra Lite (P006)**  \n\n| Specification | TerraGrip Pro WorkBoot (P005) | TerraGrip Ultra Lite (P006) |\n|---|---|---|\n| Target Application | Heavy construction workers, outdoor excavation, civil infrastructure projects [P005_TERRAGRIPS_MD_P1_02] | Light manufacturing, indoor warehousing, electrical maintenance [P005_TERRAGRIPS_MD_P1_03] |\n| Toe Protection | 200\u202fJ impact\u2011resistant carbon steel toe cap [P005_TERRAGRIPS_MD_P1_02] | Composite non\u2011metallic toe cap (200\u202fJ) [P005_TERRAGRIPS_MD_P1_03] |\n| Waterproofing | 100\u202f% waterproof breathable membrane (EN\u202fISO\u202f20345:2011\u202fS3\u202fWR) [P005_TERRAGRIPS_MD_P1_02] | Water\u2011resistant treated leather upper (light splash, not fully waterproof) [P005_TERRAGRIPS_MD_P1_03] |\n| Electrical Safety | Not documented | Electrical hazard protection rated up to 18\u202fkV [P005_TERRAGRIPS_MD_P1_03] |\n| Slip Resistance | Not documented | Certified SRC slip resistance on ceramic tile and steel floors with glycerol [P005_TERRAGRIPS_MD_P1_03] |\n| Midsole | Puncture\u2011resistant high\u2011tensile Kevlar midsole (penetration up to 1100\u202fN) [P005_TERRAGRIPS_MD_P1_02] | Not documented |\n| Outsole | Dual\u2011density nitrile rubber sole (fuel oil, acids, thermal contact up to 200\u202f\u00b0C) [P005_TERRAGRIPS_MD_P1_02] | Not documented |\n| Warranty | 1\u202fyear manufacturer replacement warranty against bonding defects [P005_TERRAGRIPS_MD_P1_02] | 6\u202fmonths limited warranty [P005_TERRAGRIPS_MD_P1_03] |\n| Price | 65.0 [P005_PRODUCTS_CSV_P5_01] | 55.0 [P006_PRODUCTS_CSV_P6_01] |\n| Category | Safety Shoes [P005_PRODUCTS_CSV_P5_01] | Safety Shoes [P006_PRODUCTS_CSV_P6_01] |\n| Brand | TerraGrip [P005_PRODUCTS_CSV_P5_01] | TerraGrip [P006_PRODUCTS_CSV_P6_01] |\n| Supplier | Acme Industrial Safety [P005_PRODUCTS_CSV_P5_01] | Acme Industrial Safety [P006_PRODUCTS_CSV_P6_01] |\n| Country | India [P005_PRODUCTS_CSV_P5_01] | India [P006_PRODUCTS_CSV_P6_01] |\n| Short Description | Heavy\u2011duty waterproof construction safety boot with 200\u202fJ steel toe cap and puncture\u2011resistant Kevlar midsole [P005_PRODUCTS_CSV_P5_01] | Lightweight composite\u2011toe safety sneaker with water\u2011resistant leather and SRC slip resistance [P006_PRODUCTS_CSV_P6_01] |\n\n*Any specification not listed above is not documented in the provided context.*",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -953,10 +953,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 0.6667
       }
     },
     {
@@ -965,7 +965,7 @@
       "question": "Compare the power output of SunPower Eco 400 and HelioCell 750 Bifacial.",
       "answerable": true,
       "expected_answer": "400W vs 750W",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "**Power Output Comparison**\n\n| Product | Power Output (W) |\n|---------|------------------|\n| SunPower Eco 400 | Not documented [P003_PRODUCTS_CSV_P3_01] |\n| HelioCell 750 Bifacial | 750\u202fW [P004_HELIOCELL7_MD_P1_02] |",
       "retrieved_sources": [
         {
           "product_id": "P003",
@@ -1038,7 +1038,7 @@
       "question": "List all solar panel products available from Indian suppliers.",
       "answerable": true,
       "expected_answer": "SolarMax 550, SolarMax 600, HelioCell 750",
-      "actual_answer": "The TitanSteel HeavyDuty 900 safety boot is supplied by German workwear manufacturer Rheinland Workwear GmbH [P007_TITANSTEEL_TXT_P1_01]. ",
+      "actual_answer": "**Solar panel products from Indian suppliers**\n\n| Product ID | Product Name | Supplier | Country |\n|------------|--------------|-----------|---------|\n| P001 | SolarMax\u202f550 | Vikram Solar Energies Pvt\u202fLtd | India [P001_01] |\n| P004 | HelioCell\u202f750\u202fBifacial | Aditya Power Systems | India [P004_01] |\n\n*The SunPower\u202fEco\u202f400 (P003) is supplied by GreenWatt Technologies from Germany, so it is not included in the list of Indian\u2011supplied panels.*",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -1099,10 +1099,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 0.6667
       }
     },
     {
@@ -1111,7 +1111,7 @@
       "question": "Which safety boots feature waterproof linings or membranes across different manufacturers?",
       "answerable": true,
       "expected_answer": "TerraGrip Pro WorkBoot (S3) and TitanSteel HeavyDuty 900 (Sympatex)",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The safety boots that are documented as having waterproof linings or membranes are:\n\n| Product | Manufacturer | Waterproof Feature |\n|---------|--------------|--------------------|\n| TitanSteel HeavyDuty 900 (P007) | TitanSteel | Waterproof Sympatex lining\u3010P007_PRODUCTS_CSV_P7_01\u3011 |\n| AquaGuard Marine Boot (P009) | AquaGuard | 100\u202f% submersible waterproof neoprene lining\u3010P009_PRODUCTS_CSV_P9_01\u3011 |\n\n*The TerraGrip Ultra Lite (P006) is only water\u2011resistant treated leather and is not fully waterproof, so it is not included in this list.*",
       "retrieved_sources": [
         {
           "product_id": "P007",
@@ -1172,10 +1172,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.1111
+        "token_overlap": 0.6667
       }
     },
     {
@@ -1184,7 +1184,7 @@
       "question": "Which safety boots are available from German suppliers?",
       "answerable": true,
       "expected_answer": "TitanSteel HeavyDuty 900",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The only safety boot listed in the supplied context that comes from a German supplier is:\n\n| Safety Boot | Supplier (German) |\n|-------------|-------------------|\n| TitanSteel HeavyDuty\u202f900 | Rheinland Workwear\u202fGmbH (Germany) | [P007_PRODUCTS_CSV_P7_01]",
       "retrieved_sources": [
         {
           "product_id": "P007",
@@ -1235,10 +1235,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -1247,7 +1247,7 @@
       "question": "What products are supplied by Vikram Solar Energies Pvt Ltd?",
       "answerable": true,
       "expected_answer": "SolarMax 550, SolarMax 600",
-      "actual_answer": "Vikram Solar Energies Pvt Ltd supplies the SolarMax 550 and SolarMax 600 modules [P001_PRODUCTS_JSO_P1_01]. ",
+      "actual_answer": "The products supplied by **Vikram Solar Energies Pvt Ltd** are:\n\n| Product ID | Product Name |\n|------------|--------------|\n| P001 | SolarMax\u202f550 |\n| P002 | SolarMax\u202f600 |\n\nThese are the only products listed in the provided context that have the supplier \u201cVikram Solar Energies Pvt Ltd\u201d [P001_PRODUCTS_JSO_P1_01][P001_PRODUCTS_CSV_P1_01][P002_PRODUCTS_JSO_P2_01][P002_PRODUCTS_CSV_P2_01].",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -1320,7 +1320,7 @@
       "question": "What is the price of the TerraGrip Pro WorkBoot?",
       "answerable": true,
       "expected_answer": "$65.0",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The price of the TerraGrip Pro WorkBoot is **$65.0**\u3010P005_PRODUCTS_CSV_P5_01\u3011\u3010P005_PRODUCTS_JSO_P5_01\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -1381,10 +1381,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 1.0
       }
     },
     {
@@ -1393,7 +1393,7 @@
       "question": "What is the integrated battery capacity of the SolarMax 550 panel?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The SolarMax\u202f550 panel does **not** include an integrated battery, and no battery capacity is specified in the provided documentation.  \n[Chunk DOC_SOLARMAXSP_MD_P1_03]",
       "retrieved_sources": [
         {
           "product_id": null,
@@ -1454,9 +1454,9 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": true,
-        "refused": true,
-        "hallucination": false
+        "correct": false,
+        "refused": false,
+        "hallucination": true
       }
     },
     {
@@ -1465,7 +1465,7 @@
       "question": "What is the flight speed of the Filumart aerial drone delivery system?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The flight speed of the Filumart aerial drone delivery system is not documented in the provided context.",
       "retrieved_sources": [
         {
           "product_id": null,
@@ -1537,7 +1537,7 @@
       "question": "Does the TerraGrip Pro WorkBoot include an integrated GPS tracker?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The information about an integrated GPS tracker for the TerraGrip Pro WorkBoot is not documented in the provided knowledge base.",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -1609,7 +1609,7 @@
       "question": "What is the warranty period of the QuantumFlux HyperDrive 9000?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The warranty period for the QuantumFlux HyperDrive\u202f9000 is not documented in the provided context.",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -1681,7 +1681,7 @@
       "question": "What is the warranty duration of SolarMax solar modules according to the HelioCell documentation?",
       "answerable": true,
       "expected_answer": "25 years",
-      "actual_answer": "The requested information is not available in the provided knowledge base. ",
+      "actual_answer": "The HelioCell documentation does not provide a warranty duration for SolarMax modules. [P004_HELIOCELL7_MD_P1_03]",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -1754,7 +1754,7 @@
       "question": "What pipe diameter sizes (nominal bore) are supported by OptiFlow Ultrasonic Meter?",
       "answerable": true,
       "expected_answer": "DN15 to DN300",
-      "actual_answer": "The SolarMax 550 comes with a 25 years standard manufacturer warranty [P001_SOLARMAX55_P2_01]. ",
+      "actual_answer": "The OptiFlow Ultrasonic Flowmeter (P012) supports pipe diameters ranging from **DN15 to DN6000\u202fmm**\u3010P012_OPTIFLOWUL_P1_01\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P012",
@@ -1815,10 +1815,10 @@
         "hit_rate_at_5": 1.0
       },
       "answer_metrics": {
-        "correct": false,
+        "correct": true,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.0
+        "token_overlap": 0.5
       }
     }
   ]

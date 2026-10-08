@@ -1,3 +1,5 @@
+
+
 import re
 import logging
 from typing import List, Tuple, Dict, Any, Optional
@@ -11,7 +13,31 @@ from app.retrieval.bm25 import BM25Searcher
 from app.retrieval.context_builder import ContextBuilder
 from app.retrieval.retriever import RetrievalResult
 
+from langchain_core.retrievers import BaseRetriever
+from langchain_core.callbacks import CallbackManagerForRetrieverRun
+from langchain_classic.retrievers import EnsembleRetriever
+from langchain_core.documents import Document
+
 logger = logging.getLogger(__name__)
+
+
+class VectorStoreRetriever(BaseRetriever):
+    """LangChain BaseRetriever adapter for VectorStore."""
+    vector_store: Any
+    embedder: Any
+    k: int = 5
+    filters: Optional[Dict[str, Any]] = None
+
+    def _get_relevant_documents(
+        self, query: str, *, run_manager: CallbackManagerForRetrieverRun
+    ) -> List[Document]:
+        query_emb = self.embedder.embed_query(query)
+        results = self.vector_store.search(
+            query_embedding=query_emb,
+            top_k=self.k,
+            filters=self.filters,
+        )
+        return [chunk.to_document() for chunk, _ in results]
 
 
 def reciprocal_rank_fusion(
@@ -115,6 +141,29 @@ class HybridRetriever:
                     logger.info(f"Loaded {len(chunks)} chunks into BM25 index from vector store.")
         except Exception as e:
             logger.warning(f"Could not initialize BM25 from vector store: {e}")
+
+    def get_ensemble_retriever(
+        self,
+        top_k: Optional[int] = None,
+        filters: Optional[Dict[str, Any]] = None,
+    ) -> Optional[EnsembleRetriever]:
+        """Create a LangChain EnsembleRetriever combining VectorStoreRetriever and BM25Retriever."""
+        k = top_k or self.top_k
+        bm25_lc = self.bm25_searcher.get_retriever(k=k * 2)
+        if not bm25_lc:
+            return None
+        vec_lc = VectorStoreRetriever(
+            vector_store=self.vector_store,
+            embedder=self.embedder,
+            k=k * 2,
+            filters=filters,
+        )
+        return EnsembleRetriever(
+            retrievers=[vec_lc, bm25_lc],
+            weights=[0.5, 0.5],
+            c=self.rrf_k,
+            id_key="chunk_id",
+        )
 
     def _detect_comparison_products(self, query: str) -> List[str]:
         """Detect multiple product mentions in a query for multi-query comparison retrieval."""

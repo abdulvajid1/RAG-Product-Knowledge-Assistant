@@ -251,10 +251,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderSources(container, sources) {
-        if (!container || !sources || sources.length === 0) return;
+        if (!container || !sources || sources.length === 0) {
+            if (container) {
+                container.classList.add("hidden");
+                container.innerHTML = "";
+            }
+            return;
+        }
 
         container.classList.remove("hidden");
-        container.innerHTML = `<div class="sources-title">Verified Sources (${sources.length})</div>`;
+        container.innerHTML = "";
+
+        const collapsible = document.createElement("div");
+        collapsible.className = "sources-collapsible";
+
+        const toggleBtn = document.createElement("button");
+        toggleBtn.type = "button";
+        toggleBtn.className = "sources-toggle-btn";
+        toggleBtn.setAttribute("aria-expanded", "false");
+        toggleBtn.innerHTML = `
+            <div class="sources-toggle-left">
+                <span class="sources-toggle-icon">▶</span>
+                <span class="sources-toggle-title">Documents Used (${sources.length})</span>
+            </div>
+            <span class="sources-toggle-hint">Click to expand</span>
+        `;
+
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "sources-content hidden";
 
         const cardsGrid = document.createElement("div");
         cardsGrid.className = "sources-grid";
@@ -283,7 +307,34 @@ document.addEventListener("DOMContentLoaded", () => {
             cardsGrid.appendChild(card);
         });
 
-        container.appendChild(cardsGrid);
+        contentDiv.appendChild(cardsGrid);
+
+        // Click handler to toggle expansion
+        toggleBtn.addEventListener("click", () => {
+            const isCurrentlyHidden = contentDiv.classList.contains("hidden");
+            if (isCurrentlyHidden) {
+                contentDiv.classList.remove("hidden");
+                toggleBtn.setAttribute("aria-expanded", "true");
+                toggleBtn.classList.add("active");
+                const icon = toggleBtn.querySelector(".sources-toggle-icon");
+                const hint = toggleBtn.querySelector(".sources-toggle-hint");
+                if (icon) icon.textContent = "▼";
+                if (hint) hint.textContent = "Click to collapse";
+                scrollToBottom();
+            } else {
+                contentDiv.classList.add("hidden");
+                toggleBtn.setAttribute("aria-expanded", "false");
+                toggleBtn.classList.remove("active");
+                const icon = toggleBtn.querySelector(".sources-toggle-icon");
+                const hint = toggleBtn.querySelector(".sources-toggle-hint");
+                if (icon) icon.textContent = "▶";
+                if (hint) hint.textContent = "Click to expand";
+            }
+        });
+
+        collapsible.appendChild(toggleBtn);
+        collapsible.appendChild(contentDiv);
+        container.appendChild(collapsible);
     }
 
     function scrollToBottom() {

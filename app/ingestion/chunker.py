@@ -6,6 +6,7 @@ from app.config import get_settings
 
 
 from pathlib import Path
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 def generate_deterministic_chunk_id(
@@ -67,46 +68,17 @@ def split_into_token_sized_chunks(
     overlap_chars: int = 250,
 ) -> List[str]:
     """
-    Split longer text blocks into overlapping chunks around sentence/paragraph boundaries.
+    Split longer text blocks into overlapping chunks using LangChain RecursiveCharacterTextSplitter.
     """
     if len(text) <= max_chars:
         return [text]
 
-    chunks: List[str] = []
-    paragraphs = text.split("\n\n")
-    current_chunk = ""
-
-    for para in paragraphs:
-        para = para.strip()
-        if not para:
-            continue
-
-        if len(current_chunk) + len(para) + 2 <= max_chars:
-            current_chunk = f"{current_chunk}\n\n{para}".strip()
-        else:
-            if current_chunk:
-                chunks.append(current_chunk)
-                # Overlap tail of previous chunk
-                overlap_text = current_chunk[-overlap_chars:] if len(current_chunk) > overlap_chars else current_chunk
-                current_chunk = f"{overlap_text}\n\n{para}".strip()
-            else:
-                # Single paragraph exceeds max_chars: split on lines or sentences
-                lines = para.split("\n")
-                sub_chunk = ""
-                for line in lines:
-                    if len(sub_chunk) + len(line) + 1 <= max_chars:
-                        sub_chunk = f"{sub_chunk}\n{line}".strip()
-                    else:
-                        if sub_chunk:
-                            chunks.append(sub_chunk)
-                        sub_chunk = line
-                if sub_chunk:
-                    current_chunk = sub_chunk
-
-    if current_chunk:
-        chunks.append(current_chunk)
-
-    return chunks
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=max_chars,
+        chunk_overlap=overlap_chars,
+        separators=["\n\n", "\n", ". ", " ", ""],
+    )
+    return splitter.split_text(text)
 
 
 class StructureAwareChunker:
