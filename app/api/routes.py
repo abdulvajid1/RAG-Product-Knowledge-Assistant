@@ -17,6 +17,7 @@ from app.api.schemas import (
 from app.retrieval.retriever import get_retriever
 from app.generation.prompt import PromptBuilder
 from app.generation.llm import get_llm_client, LLMError
+from app.observability import trace_component
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -96,6 +97,7 @@ async def get_filter_options():
 
 
 @router.post("/ask", response_model=AskResponse)
+@trace_component(name="Endpoint.ask", run_type="chain")
 async def ask_question(request: AskRequest):
     """Non-streaming QA endpoint returning complete answer and source attributions."""
     settings = get_settings()
@@ -171,6 +173,7 @@ async def ask_stream(request: Request, ask_req: AskRequest):
     retriever = get_retriever()
     filters = ask_req.filters.model_dump(exclude_none=True) if ask_req.filters else None
 
+    @trace_component(name="Endpoint.ask_stream", run_type="chain")
     async def event_generator() -> AsyncIterator[str]:
         try:
             # 1. Retrieval

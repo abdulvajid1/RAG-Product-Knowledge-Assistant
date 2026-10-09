@@ -43,6 +43,12 @@ class Settings(BaseSettings):
     ocr_dpi: int = Field(default=300, alias="OCR_DPI")
     ocr_force_pdf_ocr: bool = Field(default=False, alias="OCR_FORCE_PDF_OCR")
 
+    # Observability & LangSmith Configuration
+    langchain_tracing_v2: bool = Field(default=False, alias="LANGCHAIN_TRACING_V2")
+    langchain_api_key: str = Field(default="", alias="LANGCHAIN_API_KEY")
+    langchain_project: str = Field(default="filumart-rag-assistant", alias="LANGCHAIN_PROJECT")
+    langchain_endpoint: str = Field(default="https://api.smith.langchain.com", alias="LANGCHAIN_ENDPOINT")
+
     # API & Security
     max_query_chars: int = Field(default=1000, alias="MAX_QUERY_CHARS")
     cors_origins: str = Field(default="http://localhost:8000,http://127.0.0.1:8000", alias="CORS_ORIGINS")

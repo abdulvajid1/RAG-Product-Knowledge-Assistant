@@ -8,6 +8,7 @@ from app.api.schemas import SourceItem
 from app.retrieval.embedder import Embedder, get_embedder
 from app.retrieval.vector_store import VectorStore, ChromaVectorStore
 from app.retrieval.context_builder import ContextBuilder, ContextBuildResult
+from app.observability import trace_component
 
 logger = logging.getLogger(__name__)
 
@@ -57,6 +58,7 @@ class BaselineRetriever:
             filters=filters,
         )
 
+    @trace_component(name="BaselineRetriever.retrieve", run_type="retriever")
     def retrieve(
         self,
         query: str,

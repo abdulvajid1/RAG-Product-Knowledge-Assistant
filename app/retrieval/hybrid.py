@@ -12,6 +12,7 @@ from app.retrieval.vector_store import VectorStore, ChromaVectorStore
 from app.retrieval.bm25 import BM25Searcher
 from app.retrieval.context_builder import ContextBuilder
 from app.retrieval.retriever import RetrievalResult
+from app.observability import trace_component
 
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.callbacks import CallbackManagerForRetrieverRun
@@ -40,6 +41,7 @@ class VectorStoreRetriever(BaseRetriever):
         return [chunk.to_document() for chunk, _ in results]
 
 
+@trace_component(name="reciprocal_rank_fusion", run_type="parser")
 def reciprocal_rank_fusion(
     ranked_lists: List[List[Tuple[Chunk, float]]],
     k: int = 60,
@@ -199,6 +201,7 @@ class HybridRetriever:
                 found.append(p)
         return found
 
+    @trace_component(name="HybridRetriever.retrieve", run_type="retriever")
     def retrieve(
         self,
         query: str,
@@ -273,6 +276,7 @@ class HybridRetriever:
             filters_applied=filters,
         )
 
+    @trace_component(name="HybridRetriever.single_hybrid_retrieve", run_type="parser")
     def _single_hybrid_retrieve(
         self,
         query: str,

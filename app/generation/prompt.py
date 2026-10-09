@@ -45,6 +45,7 @@ def sanitize_context_for_injection(context: str) -> str:
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import BaseMessage
+from app.observability import trace_component
 
 
 class PromptBuilder:
@@ -95,6 +96,7 @@ class PromptBuilder:
                 f"Do not invent facts. If missing from context, state that it is not documented."
             )
 
+    @trace_component(name="PromptBuilder.format_messages", run_type="prompt")
     def format_messages(self, query: str, context: str) -> List[BaseMessage]:
         """Format as LangChain BaseMessage instances (SystemMessage and HumanMessage)."""
         user_content = self.build_user_content(query, context)
@@ -103,6 +105,7 @@ class PromptBuilder:
             user_content=user_content,
         )
 
+    @trace_component(name="PromptBuilder.build_messages", run_type="prompt")
     def build_messages(self, query: str, context: str) -> List[Dict[str, str]]:
         """
         Build chat message payload (system + user) with untrusted context tags.

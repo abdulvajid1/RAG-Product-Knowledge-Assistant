@@ -1,5 +1,12 @@
 {
-  "mode": "baseline",
+  "experiment_name": "baseline-vector-top5",
+  "configuration": {
+    "retrieval_mode": "baseline",
+    "top_k": 5,
+    "score_threshold": 0.35,
+    "llm_provider": "openrouter",
+    "llm_model": "openai/gpt-oss-20b"
+  },
   "total_questions": 25,
   "mean_recall_at_1": 0.6133,
   "mean_recall_at_3": 0.7933,
@@ -89,7 +96,7 @@
       "question": "What is the warranty period of SolarMax 550?",
       "answerable": true,
       "expected_answer": "25 years",
-      "actual_answer": "The SolarMax\u202f550 comes with a **25\u2011year linear power\u2011output warranty** (guaranteeing 84.8\u202f% of its rated power at year\u202f25) and a **12\u2011year workmanship warranty** [P001_SOLARMAX55_P2_01][DOC_SOLARMAXSP_MD_P1_03].",
+      "actual_answer": "The SolarMax\u202f550 comes with a **25\u2011year linear power\u2011output warranty** and a **12\u2011year workmanship warranty**.  \n[ P001_SOLARMAX55_P2_01 ] [ DOC_SOLARMAXSP_MD_P1_03 ]",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -207,11 +214,11 @@
         {
           "product_id": "P005",
           "product_name": "TerraGrip Pro WorkBoot",
-          "document": "terragrip_safety_footwear_guide.md",
+          "document": "scanned_terragrip_pro_cert.pdf",
           "page": 1,
-          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
-          "source_type": "text",
-          "score": 0.7326,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.7552,
           "text": null
         }
       ],
@@ -235,7 +242,7 @@
       "question": "What is the measuring range of the SensorTech PT100 Transmitter?",
       "answerable": true,
       "expected_answer": "-200\u00b0C to 650\u00b0C",
-      "actual_answer": "The SensorTech TempPro PT100 (P010) has a measurement temperature range of **\u201150\u202f\u00b0C to 400\u202f\u00b0C**\u3010P010_SENSORTECH_MD_P1_02\u3011.",
+      "actual_answer": "The SensorTech TempPro PT100 transmitter measures temperatures from **\u201150\u202f\u00b0C to 400\u202f\u00b0C**\u3010P010_SENSORTECH_MD_P1_02\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P010",
@@ -278,13 +285,13 @@
           "text": null
         },
         {
-          "product_id": "P011",
-          "product_name": "SensorTech PressureGuard 100",
-          "document": "products.csv",
-          "page": 11,
-          "chunk_id": "P011_PRODUCTS_CSV_P11_01",
-          "source_type": "structured",
-          "score": 0.7535,
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_02",
+          "source_type": "ocr",
+          "score": 0.7773,
           "text": null
         }
       ],
@@ -351,13 +358,13 @@
           "text": null
         },
         {
-          "product_id": "P011",
-          "product_name": "SensorTech PressureGuard 100",
-          "document": "products.json",
-          "page": 11,
-          "chunk_id": "P011_PRODUCTS_JSO_P11_01",
-          "source_type": "structured",
-          "score": 0.7516,
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_02",
+          "source_type": "ocr",
+          "score": 0.7803,
           "text": null
         }
       ],
@@ -381,7 +388,7 @@
       "question": "What is the maximum operating pressure of the OptiFlow Ultrasonic Meter?",
       "answerable": true,
       "expected_answer": "16 bar",
-      "actual_answer": "The maximum operating pressure for the OptiFlow Ultrasonic Flowmeter is not documented in the provided context.",
+      "actual_answer": "The maximum operating pressure of the OptiFlow Ultrasonic Flowmeter is not documented in the provided context. [Chunk P012_OPTIFLOWUL_P1_01]",
       "retrieved_sources": [
         {
           "product_id": null,
@@ -454,7 +461,7 @@
       "question": "Can the SolarMax 550 withstand sub-zero freezing weather?",
       "answerable": true,
       "expected_answer": "-40\u00b0C",
-      "actual_answer": "Yes. The SolarMax\u202f550 is rated for an operating temperature range of **\u201140\u202f\u00b0C to 85\u202f\u00b0C**, which includes sub\u2011zero freezing conditions. [P001_SOLARMAX55_P2_01] [DOC_SOLARMAXSP_MD_P1_03]",
+      "actual_answer": "Yes. The SolarMax\u202f550 is rated for an operating temperature range of **\u201140\u202f\u00b0C to 85\u202f\u00b0C**, which includes sub\u2011zero freezing conditions. This information is documented in the product\u2019s technical manual and specifications [P001_SOLARMAX55_P2_01] and [P001_SOLARMAX55_P1_01].",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -527,7 +534,7 @@
       "question": "Which footwear protects against sharp objects penetrating from the ground?",
       "answerable": true,
       "expected_answer": "Kevlar midsole",
-      "actual_answer": "The footwear that is documented to protect against sharp objects penetrating from the ground are:\n\n| Product | Puncture\u2011resistance feature |\n|---------|-----------------------------|\n| TerraGrip Pro WorkBoot (P005) | Puncture\u2011resistant high\u2011tensile Kevlar midsole resisting penetration up to 1100\u202fN [P005_TERRAGRIPS_MD_P1_02] |\n| TitanSteel HeavyDuty 900 (P007) | Stainless steel puncture\u2011resistant plate (1100\u202fN resistance) [P007_TITANSTEEL_TXT_P1_02] |\n\nThe other products in the context (TerraGrip Ultra Lite and SafeStep Eco Runner) do not have puncture\u2011resistance information documented.",
+      "actual_answer": "Footwear that is documented to protect against sharp objects penetrating from the ground:\n\n| Product | Puncture\u2011resistant feature |\n|---------|----------------------------|\n| TerraGrip Pro WorkBoot (P005) | High\u2011tensile Kevlar midsole resisting penetration up to 1100\u202fN [P005_TERRAGRIPS_MD_P1_02] |\n| TitanSteel HeavyDuty 900 (P007) | Stainless steel puncture\u2011resistant plate (1100\u202fN resistance) [P007_TITANSTEEL_TXT_P1_02] |\n\nThe SafeStep Eco Runner (P008) does not have any puncture\u2011resistance specification in the provided data.",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -600,7 +607,7 @@
       "question": "Are there heat-resistant safety shoes capable of withstanding 300 degrees contact heat?",
       "answerable": true,
       "expected_answer": "TitanSteel HeavyDuty 900",
-      "actual_answer": "Yes.  \nThe **TitanSteel HeavyDuty 900 (P007)** has a nitrile rubber sole that can withstand contact heat up to **300\u202f\u00b0C for 60\u202fseconds**\u3010P007_TITANSTEEL_TXT_P1_02\u3011.  \n\nThe **TerraGrip Pro WorkBoot (P005)** is rated only up to **200\u202f\u00b0C**\u3010P005_TERRAGRIPS_MD_P1_02\u3011, and the Ultra Lite (P006) does not list any heat\u2011resistance specification.",
+      "actual_answer": "Yes.  \nThe **TitanSteel HeavyDuty 900 (P007)** has a nitrile rubber sole that can withstand contact heat up to **300\u202f\u00b0C for 60\u202fseconds**\u3010P007_TITANSTEEL_TXT_P1_02\u3011.  \n\nThe **TerraGrip Pro WorkBoot (P005)** is rated for thermal contact up to **200\u202f\u00b0C**\u3010P005_TERRAGRIPS_MD_P1_02\u3011, so it does not meet the 300\u202f\u00b0C requirement.",
       "retrieved_sources": [
         {
           "product_id": "P007",
@@ -708,21 +715,21 @@
         {
           "product_id": "P010",
           "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_02",
+          "source_type": "ocr",
+          "score": 0.6201,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
           "document": "sensortech_catalog.md",
           "page": 1,
           "chunk_id": "P010_SENSORTECH_MD_P1_03",
           "source_type": "text",
           "score": 0.619,
-          "text": null
-        },
-        {
-          "product_id": "P011",
-          "product_name": "SensorTech PressureGuard 100",
-          "document": "products.csv",
-          "page": 11,
-          "chunk_id": "P011_PRODUCTS_CSV_P11_01",
-          "source_type": "structured",
-          "score": 0.6114,
           "text": null
         }
       ],
@@ -819,7 +826,7 @@
       "question": "Compare SolarMax 550 and SolarMax 600.",
       "answerable": true,
       "expected_answer": "550W vs 600W",
-      "actual_answer": "**Comparison of SolarMax 550 (P001) vs. SolarMax 600 (P002)**  \n\n| Specification | SolarMax 550 (P001) | SolarMax 600 (P002) |\n|----------------|---------------------|---------------------|\n| Rated Power (Pmax) | 550\u202fW [P001_SOLARMAX55_P1_01] | Not documented |\n| Module Efficiency | 21.3\u202f% [P001_SOLARMAX55_P1_01] | Not documented |\n| Operating Temperature | \u201340\u202f\u00b0C to 85\u202f\u00b0C [P001_SOLARMAX55_P2_01] | Not documented |\n| Temperature Coefficient of Pmax | \u20130.35\u202f%/\u00b0C [P001_SOLARMAX55_P2_01] | Not documented |\n| Maximum System Voltage | 1500\u202fV\u202fDC [P001_SOLARMAX55_P2_01] | Not documented |\n| Operational Maximum Wind Load | 2400\u202fPa [P001_SOLARMAX55_P2_01] | Not documented |\n| Maximum Snow Load | 5400\u202fPa [P001_SOLARMAX55_P2_01] | Not documented |\n| Linear Power Output Warranty | 25\u202fyears, 84.8\u202f% performance at Year\u202f25 [P001_SOLARMAX55_P2_01] | Not documented |\n| Workmanship Warranty | 12\u202fyears [P001_SOLARMAX55_P2_01] | Not documented |\n| Certifications | IEC\u202f61215, IEC\u202f61730, CE Mark, ISO\u202f14001 [P001_SOLARMAX55_P2_01] | Not documented |\n| Price | 220.0\u202fUSD [P001_PRODUCTS_CSV_P1_01] | 260.0\u202fUSD [P002_PRODUCTS_CSV_P2_01] |\n\n*All specifications are taken directly from the provided context. Any attribute marked \u201cNot documented\u201d is not present in the supplied information.*",
+      "actual_answer": "**Comparison of SolarMax 550 (P001) vs. SolarMax 600 (P002)**  \n\n| Specification | SolarMax\u202f550 (P001) | SolarMax\u202f600 (P002) |\n|---------------|---------------------|---------------------|\n| Rated Power (Pmax) | 550\u202fW\u202f[P001_SOLARMAX55_P1_01] | Not documented |\n| Module Efficiency | 21.3\u202f%\u202f[P001_SOLARMAX55_P1_01] | Not documented |\n| Operating Temperature | \u201340\u202f\u00b0C\u202f\u2192\u202f85\u202f\u00b0C\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Temperature Coefficient of Pmax | \u20130.35\u202f%/\u00b0C\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Maximum System Voltage | 1500\u202fV\u202fDC\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Operational Maximum Wind Load | 2400\u202fPa\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Maximum Snow Load | 5400\u202fPa\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Linear Power Output Warranty | 25\u202fyears, 84.8\u202f% performance at Year\u202f25\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Workmanship Warranty | 12\u202fyears\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Certifications | IEC\u202f61215, IEC\u202f61730, CE Mark, ISO\u202f14001\u202f[P001_SOLARMAX55_P2_01] | Not documented |\n| Price | \u20b9220.0\u202f[P001_PRODUCTS_CSV_P1_01] | \u20b9260.0\u202f[P002_PRODUCTS_CSV_P2_01] |\n| Category | Solar Panels\u202f[P001_PRODUCTS_CSV_P1_01] | Solar Panels\u202f[P002_PRODUCTS_CSV_P2_01] |\n| Brand | SolarMax\u202f[P001_PRODUCTS_CSV_P1_01] | SolarMax\u202f[P002_PRODUCTS_CSV_P2_01] |\n| Supplier | Vikram Solar Energies Pvt Ltd\u202f[P001_PRODUCTS_CSV_P1_01] | Vikram Solar Energies Pvt Ltd\u202f[P002_PRODUCTS_CSV_P2_01] |\n| Country | India\u202f[P001_PRODUCTS_CSV_P1_01] | India\u202f[P002_PRODUCTS_CSV_P2_01] |\n| Short Description | High\u2011efficiency 550\u202fW monocrystalline PERC solar photovoltaic module for commercial installations.\u202f[P001_PRODUCTS_CSV_P1_01] | Next\u2011generation 600\u202fW TOPCon bi\u2011facial solar module with enhanced low\u2011light performance.\u202f[P002_PRODUCTS_CSV_P2_01] |\n\n*Any specification marked \u201cNot documented\u201d is not provided in the supplied context.*",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -892,7 +899,7 @@
       "question": "What is the difference between TerraGrip Pro WorkBoot and TerraGrip Ultra Lite?",
       "answerable": true,
       "expected_answer": "Steel toe vs Composite toe, Waterproof vs Water-resistant",
-      "actual_answer": "**Comparison of TerraGrip Pro WorkBoot (P005) vs. TerraGrip Ultra Lite (P006)**  \n\n| Specification | TerraGrip Pro WorkBoot (P005) | TerraGrip Ultra Lite (P006) |\n|---------------|------------------------------|-----------------------------|\n| **Product ID** | P005 | P006 |\n| **Product Name** | TerraGrip Pro WorkBoot | TerraGrip Ultra Lite |\n| **Category** | Safety Shoes | Safety Shoes |\n| **Brand** | TerraGrip | TerraGrip |\n| **Supplier** | Acme Industrial Safety | Acme Industrial Safety |\n| **Country** | India | India |\n| **Price** | 65.0 | 55.0 |\n| **Short Description** | Heavy\u2011duty waterproof construction safety boot with 200J steel toe cap and puncture\u2011resistant Kevlar midsole. | Lightweight composite\u2011toe safety sneaker with water\u2011resistant leather and SRC slip resistance. |\n| **Target Application** | Not documented | Light manufacturing, indoor warehousing, electrical maintenance. |\n| **Toe Protection** | 200J steel toe cap | Composite non\u2011metallic toe cap (200 Joules) |\n| **Water Resistance** | Waterproof construction | Water\u2011resistant treated leather upper (light splash, NOT fully waterproof) |\n| **Electrical Safety** | Not documented | Electrical hazard protection rated up to 18\u202fkV |\n| **Slip Resistance** | Not documented | Certified SRC slip resistance on ceramic tile and steel floors with glycerol |\n| **Warranty** | Not documented | 6\u202fmonths limited warranty |\n\n**Sources**  \n- P005: [P005_PRODUCTS_CSV_P5_01], [P005_PRODUCTS_JSO_P5_01]  \n- P006: [P006_PRODUCTS_CSV_P6_01], [P006_PRODUCTS_JSO_P6_01], [P005_TERRAGRIPS_MD_P1_03]",
+      "actual_answer": "**Comparison of TerraGrip Pro WorkBoot (P005) vs. TerraGrip Ultra\u202fLite (P006)**  \n\n| Specification | TerraGrip Pro WorkBoot (P005) | TerraGrip Ultra\u202fLite (P006) |\n|---------------|------------------------------|-----------------------------|\n| **Product\u202fID** | P005 | P006 |\n| **Product\u202fName** | TerraGrip Pro WorkBoot | TerraGrip Ultra\u202fLite |\n| **Category** | Safety Shoes | Safety Shoes |\n| **Brand** | TerraGrip | TerraGrip |\n| **Supplier** | Acme Industrial Safety | Acme Industrial Safety |\n| **Country** | India | India |\n| **Price** | 65.0 | 55.0 |\n| **Short Description** | Heavy\u2011duty waterproof construction safety boot with 200J steel toe cap and puncture\u2011resistant Kevlar midsole. [P005_PRODUCTS_CSV_P5_01] | Lightweight composite\u2011toe safety sneaker with water\u2011resistant leather and SRC slip resistance. [P006_PRODUCTS_CSV_P6_01] |\n| **Target Application** | Not documented | Light manufacturing, indoor warehousing, electrical maintenance. [P005_TERRAGRIPS_MD_P1_03] |\n| **Toe Protection** | 200J steel toe cap. [P005_PRODUCTS_CSV_P5_01] | Composite non\u2011metallic toe cap (200\u202fJ). [P005_TERRAGRIPS_MD_P1_03] |\n| **Water Resistance** | Waterproof construction. [P005_PRODUCTS_CSV_P5_01] | Water\u2011resistant treated leather upper (light splash, not fully waterproof). [P005_TERRAGRIPS_MD_P1_03] |\n| **Electrical Safety** | Not documented | Electrical hazard protection rated up to 18\u202fkV. [P005_TERRAGRIPS_MD_P1_03] |\n| **Slip Resistance** | Not documented | Certified SRC slip resistance on ceramic tile and steel floors with glycerol. [P005_TERRAGRIPS_MD_P1_03] |\n| **Warranty** | Not documented | 6\u202fmonths limited warranty. [P005_TERRAGRIPS_MD_P1_03] |\n\n*All information is taken directly from the supplied context. Any specification not present in the context is marked as \u201cNot documented.\u201d*",
       "retrieved_sources": [
         {
           "product_id": "P005",
@@ -965,7 +972,7 @@
       "question": "Compare the power output of SunPower Eco 400 and HelioCell 750 Bifacial.",
       "answerable": true,
       "expected_answer": "400W vs 750W",
-      "actual_answer": "| Specification | SunPower Eco\u202f400 | HelioCell\u202f750\u202fBifacial |\n|----------------|------------------|------------------------|\n| Rated Power    | 400\u202fW [P003_PRODUCTS_CSV_P3_01] | 750\u202fW [P004_HELIOCELL7_MD_P1_02] |",
+      "actual_answer": "**Comparison of Power Output**\n\n| Specification | SunPower Eco 400 (P003) | HelioCell 750 Bifacial (P004) |\n|---------------|------------------------|------------------------------|\n| Rated Power   | 400\u202fW [P003_PRODUCTS_CSV_P3_01] | 750\u202fW [P004_HELIOCELL7_MD_P1_02] |\n\n*Both products\u2019 rated power values are directly taken from the supplied context.*",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -1038,7 +1045,7 @@
       "question": "List all solar panel products available from Indian suppliers.",
       "answerable": true,
       "expected_answer": "SolarMax 550, SolarMax 600, HelioCell 750",
-      "actual_answer": "**Solar panel products from Indian suppliers**\n\n| Product ID | Product Name | Supplier | Country |\n|------------|--------------|----------|---------|\n| P001 | SolarMax\u202f550 | Vikram Solar Energies Pvt\u202fLtd | India [P001_01] |\n| P002 | SolarMax\u202f600 | Vikram Solar Energies Pvt\u202fLtd | India [P002_01] |\n\nThese are the only solar panel products listed in the provided context that are sourced from suppliers based in India.",
+      "actual_answer": "**Solar panel products from Indian suppliers**\n\n| Product ID | Product Name |\n|------------|--------------|\n| P001 | SolarMax\u202f550 |\n| P002 | SolarMax\u202f600 |\n\nBoth products are supplied by Vikram Solar Energies Pvt\u202fLtd, a company based in India, as documented in the product records [P001_01] and [P002_01].",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -1111,7 +1118,7 @@
       "question": "Which safety boots feature waterproof linings or membranes across different manufacturers?",
       "answerable": true,
       "expected_answer": "TerraGrip Pro WorkBoot (S3) and TitanSteel HeavyDuty 900 (Sympatex)",
-      "actual_answer": "**Safety boots that include waterproof linings or membranes**\n\n| Product | Manufacturer | Waterproof Feature |\n|---------|--------------|--------------------|\n| AquaGuard Marine Boot (P009) | AquaGuard | 100\u202f% submersible waterproof neoprene construction\u3010P009_PRODUCTS_CSV_P9_01\u3011 |\n| TerraGrip Pro WorkBoot (P005) | TerraGrip | 100\u202f% waterproof breathable membrane (EN\u202fISO\u202f20345:2011\u202fS3\u202fWR)\u3010P005_TERRAGRIPS_MD_P1_02\u3011 |\n\nThese are the only safety\u2011boot models in the provided context that explicitly mention waterproof linings or membranes.",
+      "actual_answer": "Both safety boots listed in the supplied context include waterproof linings or membranes:\n\n| Product | Manufacturer | Waterproof Feature |\n|---------|---------------|---------------------|\n| AquaGuard Marine Boot (P009) | AquaGuard | 100\u202f% submersible waterproof neoprene construction\u3010P009_PRODUCTS_CSV_P9_01\u3011\u3010P009_AQUAGUARDB_PNG_P1_01\u3011 |\n| TerraGrip Pro WorkBoot (P005) | TerraGrip | 100\u202f% waterproof breathable membrane (EN\u202fISO\u202f20345:2011\u202fS3\u202fWR)\u3010P005_TERRAGRIPS_MD_P1_02\u3011 |\n\nThus, both the AquaGuard Marine Boot and the TerraGrip Pro WorkBoot feature waterproof linings or membranes.",
       "retrieved_sources": [
         {
           "product_id": "P009",
@@ -1144,6 +1151,16 @@
           "text": null
         },
         {
+          "product_id": "P009",
+          "product_name": "AquaGuard Marine Boot",
+          "document": "aquaguard_boot_label.png",
+          "page": 1,
+          "chunk_id": "P009_AQUAGUARDB_PNG_P1_01",
+          "source_type": "ocr",
+          "score": 0.7003,
+          "text": null
+        },
+        {
           "product_id": "P005",
           "product_name": "TerraGrip Pro WorkBoot",
           "document": "products.json",
@@ -1151,16 +1168,6 @@
           "chunk_id": "P005_PRODUCTS_JSO_P5_01",
           "source_type": "structured",
           "score": 0.6989,
-          "text": null
-        },
-        {
-          "product_id": "P005",
-          "product_name": "TerraGrip Pro WorkBoot",
-          "document": "terragrip_safety_footwear_guide.md",
-          "page": 1,
-          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
-          "source_type": "text",
-          "score": 0.6986,
           "text": null
         }
       ],
@@ -1175,7 +1182,7 @@
         "correct": false,
         "refused": false,
         "hallucination": false,
-        "token_overlap": 0.3333
+        "token_overlap": 0.4444
       }
     },
     {
@@ -1184,7 +1191,7 @@
       "question": "Which safety boots are available from German suppliers?",
       "answerable": true,
       "expected_answer": "TitanSteel HeavyDuty 900",
-      "actual_answer": "The only safety boot listed in the provided context that is supplied by a German manufacturer is:\n\n| Safety Boot | Supplier | Country |\n|-------------|----------|---------|\n| TitanSteel HeavyDuty\u202f900 | Rheinland Workwear GmbH | Germany |\n\nThis information is documented in the product record for P007\u3010P007_PRODUCTS_CSV_P7_01\u3011. No other German\u2011supplied safety boots are mentioned in the supplied context.",
+      "actual_answer": "The only safety boot listed in the provided context that is supplied by a German company is:\n\n| Safety Boot | Supplier | Country |\n|-------------|----------|---------|\n| TitanSteel HeavyDuty 900 | Rheinland Workwear GmbH | Germany | [P007_PRODUCTS_CSV_P7_01] [P007_TITANSTEEL_TXT_P1_01]",
       "retrieved_sources": [
         {
           "product_id": "P007",
@@ -1247,7 +1254,7 @@
       "question": "What products are supplied by Vikram Solar Energies Pvt Ltd?",
       "answerable": true,
       "expected_answer": "SolarMax 550, SolarMax 600",
-      "actual_answer": "The products supplied by **Vikram Solar Energies Pvt Ltd** are:\n\n| Product ID | Product Name |\n|------------|--------------|\n| P001 | SolarMax\u202f550 |\n| P002 | SolarMax\u202f600 |\n\nThese are the only products listed in the provided context that have Vikram Solar Energies Pvt Ltd as the supplier. [P001_01] [P002_01]",
+      "actual_answer": "The supplier **Vikram Solar Energies Pvt Ltd** supplies the following products listed in the provided data:\n\n| Product ID | Product Name |\n|------------|--------------|\n| P001 | SolarMax\u202f550 |\n| P002 | SolarMax\u202f600 |\n\nThese products are documented with the supplier field set to Vikram Solar Energies Pvt Ltd in the catalog entries for both P001 and P002\u3010P001_PRODUCTS_JSO_P1_01\u3011\u3010P001_PRODUCTS_CSV_P1_01\u3011\u3010P002_PRODUCTS_JSO_P2_01\u3011\u3010P002_PRODUCTS_CSV_P2_01\u3011.",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -1345,6 +1352,16 @@
         {
           "product_id": "P005",
           "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.7083,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
           "document": "terragrip_safety_footwear_guide.md",
           "page": 1,
           "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
@@ -1360,16 +1377,6 @@
           "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
           "source_type": "text",
           "score": 0.6978,
-          "text": null
-        },
-        {
-          "product_id": "P005",
-          "product_name": "TerraGrip Pro WorkBoot",
-          "document": "terragrip_safety_footwear_guide.md",
-          "page": 1,
-          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
-          "source_type": "text",
-          "score": 0.674,
           "text": null
         }
       ],
@@ -1393,7 +1400,7 @@
       "question": "What is the integrated battery capacity of the SolarMax 550 panel?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The SolarMax\u202f550 panel does not include an integrated battery, so its battery capacity is not documented in the provided information. [DOC_SOLARMAXSP_MD_P1_03]",
+      "actual_answer": "The SolarMax\u202f550 panel does not include an integrated battery; battery storage must be procured separately. This information is not documented in the provided context. [DOC_SOLARMAXSP_MD_P1_03]",
       "retrieved_sources": [
         {
           "product_id": "P001",
@@ -1465,7 +1472,7 @@
       "question": "What is the flight speed of the Filumart aerial drone delivery system?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The flight speed of the Filumart aerial drone delivery system is not documented in the provided context.",
+      "actual_answer": "The flight speed of the Filumart aerial drone delivery system is **not documented** in the provided context.",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -1537,8 +1544,18 @@
       "question": "Does the TerraGrip Pro WorkBoot include an integrated GPS tracker?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The provided information does not mention an integrated GPS tracker for the TerraGrip Pro WorkBoot. The specifications listed in the context cover toe protection, waterproofing, midsole, outsole, and warranty, but no GPS feature is documented. Therefore, it is not documented that the TerraGrip Pro WorkBoot includes an integrated GPS tracker. [P005_TERRAGRIPS_MD_P1_02]",
+      "actual_answer": "The provided information does not mention an integrated GPS tracker for the TerraGrip Pro WorkBoot. The product specifications focus on features such as a 200\u202fJ steel toe cap, puncture\u2011resistant Kevlar midsole, and waterproof construction, but no GPS functionality is documented in the supplied context. [P005_PRODUCTS_CSV_P5_01] [P005_PRODUCTS_JSO_P5_01]",
       "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.6645,
+          "text": null
+        },
         {
           "product_id": "P005",
           "product_name": "TerraGrip Pro WorkBoot",
@@ -1578,16 +1595,6 @@
           "source_type": "structured",
           "score": 0.6363,
           "text": null
-        },
-        {
-          "product_id": "P005",
-          "product_name": "TerraGrip Pro WorkBoot",
-          "document": "terragrip_safety_footwear_guide.md",
-          "page": 1,
-          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
-          "source_type": "text",
-          "score": 0.6351,
-          "text": null
         }
       ],
       "retrieval_metrics": {
@@ -1609,7 +1616,7 @@
       "question": "What is the warranty period of the QuantumFlux HyperDrive 9000?",
       "answerable": false,
       "expected_answer": "not available",
-      "actual_answer": "The warranty period for the QuantumFlux HyperDrive\u202f9000 is not documented in the provided context.",
+      "actual_answer": "The warranty period for QuantumFlux HyperDrive\u202f9000 is not documented in the provided context.",
       "retrieved_sources": [
         {
           "product_id": "P004",
@@ -1681,7 +1688,7 @@
       "question": "What is the warranty duration of SolarMax solar modules according to the HelioCell documentation?",
       "answerable": true,
       "expected_answer": "25 years",
-      "actual_answer": "The HelioCell documentation does not provide a warranty duration for SolarMax solar modules.  \n[ P004_HELIOCELL7_MD_P1_03 ]",
+      "actual_answer": "The HelioCell documentation does not provide any warranty information for SolarMax solar modules. The only warranty mentioned in the HelioCell documents is the 25\u2011year standard warranty for the HelioCell 750\u202fBifacial module itself. No warranty duration for SolarMax products is documented in the HelioCell source material. [P004_HELIOCELL7_MD_P1_02]",
       "retrieved_sources": [
         {
           "product_id": "P004",

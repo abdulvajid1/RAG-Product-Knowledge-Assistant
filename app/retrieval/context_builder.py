@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from app.config import get_settings
 from app.ingestion.models import Chunk
 from app.api.schemas import SourceItem
+from app.observability import trace_component
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +54,7 @@ class ContextBuilder:
 
         return deduped
 
+    @trace_component(name="ContextBuilder.build_context", run_type="parser")
     def build_context(
         self, chunks_with_scores: List[Tuple[Chunk, float]]
     ) -> ContextBuildResult:
