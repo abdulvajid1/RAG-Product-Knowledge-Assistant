@@ -47,6 +47,12 @@ def parse_args():
         default=None,
         help="Custom experiment name to attach to this evaluation run.",
     )
+    parser.add_argument(
+        "--compare-file",
+        type=str,
+        default=None,
+        help="Path to an existing results JSON file to compare against (e.g. data/eval/results_improved.json).",
+    )
     return parser.parse_args()
 
 
@@ -133,19 +139,20 @@ async def main():
 
     else:
         # Run single mode
-        out_file = data_eval_dir / f"results_{args.mode}.json"
-        print(f"\nEvaluating RETRIEVAL_MODE={args.mode}...")
+        out_file = data_eval_dir / (f"results_{args.experiment_name}.json" if args.experiment_name else f"results_{args.mode}.json")
+        exp_name = args.experiment_name or f"{args.mode}-k{args.top_k}"
+        print(f"\nEvaluating RETRIEVAL_MODE={args.mode} (Experiment: {exp_name})...")
         results = await runner.run_experiment(
             retrieval_mode=args.mode,
             top_k=args.top_k,
             score_threshold=args.threshold,
-            experiment_name=args.experiment_name or f"{args.mode}-k{args.top_k}",
+            experiment_name=exp_name,
             push_langsmith=args.push_langsmith,
             output_file=out_file,
         )
 
         print("\n" + "=" * 60)
-        print(f"EXPERIMENT RESULTS ({args.mode.upper()})")
+        print(f"EXPERIMENT RESULTS ({exp_name})")
         print("=" * 60)
         print(f"Mean Recall@1:             {results['mean_recall_at_1']}")
         print(f"Mean Recall@3:             {results['mean_recall_at_3']}")
@@ -157,6 +164,40 @@ async def main():
         print(f"Hallucination Count:       {results['hallucination_count']}")
         print("=" * 60)
         print(f"Results saved to: {out_file}\n")
+
+        # Optional comparison against baseline file
+        compare_path = Path(args.compare_file) if args.compare_file else data_eval_dir / "results_improved.json"
+        if compare_path.exists() and compare_path != out_file:
+            import json as json_mod
+            with open(compare_path, "r", encoding="utf-8") as f:
+                base_data = json_mod.load(f)
+            base_label = base_data.get("experiment_name", "Baseline (500 tokens)")
+            print("=" * 80)
+            print(f"COMPARISON SUMMARY: {base_label} vs {exp_name}")
+            print("=" * 80)
+            print(f"{'Metric':<28} | {'Baseline (500)':<18} | {exp_name[:20]:<20} | {'Delta':<10}")
+            print("-" * 80)
+            metrics_to_compare = [
+                ("Recall@1", "mean_recall_at_1"),
+                ("Recall@3", "mean_recall_at_3"),
+                ("Recall@5", "mean_recall_at_5"),
+                ("Mean Reciprocal Rank (MRR)", "mean_mrr"),
+                ("Hit Rate@5", "hit_rate_at_5"),
+                ("Answer Accuracy", "answerable_accuracy"),
+                ("Unanswerable Refusal Rate", "unanswerable_refusal_rate"),
+                ("Hallucination Count", "hallucination_count"),
+            ]
+            for label, key in metrics_to_compare:
+                b_val = base_data.get(key, 0.0)
+                n_val = results.get(key, 0.0)
+                if isinstance(b_val, float):
+                    delta = n_val - b_val
+                    sign = "+" if delta > 0 else ""
+                    print(f"{label:<28} | {b_val:<18.4f} | {n_val:<20.4f} | {sign}{delta:.4f}")
+                else:
+                    delta = n_val - b_val
+                    print(f"{label:<28} | {b_val:<18} | {n_val:<20} | {delta}")
+            print("=" * 80 + "\n")
 
 
 if __name__ == "__main__":

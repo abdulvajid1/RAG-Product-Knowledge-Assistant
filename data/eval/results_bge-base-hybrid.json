@@ -1,0 +1,1832 @@
+{
+  "experiment_name": "bge-base-hybrid",
+  "configuration": {
+    "retrieval_mode": "hybrid",
+    "top_k": 5,
+    "score_threshold": 0.35,
+    "llm_provider": "openrouter",
+    "llm_model": "openai/gpt-oss-20b"
+  },
+  "total_questions": 25,
+  "mean_recall_at_1": 0.56,
+  "mean_recall_at_3": 0.68,
+  "mean_recall_at_5": 0.8067,
+  "mean_mrr": 0.6813,
+  "hit_rate_at_5": 0.84,
+  "answerable_accuracy": 0.5238,
+  "unanswerable_refusal_rate": 0.75,
+  "hallucination_count": 1,
+  "detailed_results": [
+    {
+      "id": "q001",
+      "category": "direct_factual",
+      "question": "What is the maximum operating temperature of the SolarMax 550?",
+      "answerable": true,
+      "expected_answer": "85\u00b0C",
+      "actual_answer": "The SolarMax\u202f550 is rated for an operating temperature range of **\u201140\u202f\u00b0C to 85\u202f\u00b0C**, so its maximum operating temperature is **85\u202f\u00b0C**\u3010P001_SOLARMAX55_P2_01\u3011\u3010DOC_SOLARMAXSP_MD_P1_03\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9534,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.9531,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_03",
+          "source_type": "ocr",
+          "score": 0.9173,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q002",
+      "category": "direct_factual",
+      "question": "What is the warranty period of SolarMax 550?",
+      "answerable": true,
+      "expected_answer": "25 years",
+      "actual_answer": "The SolarMax\u202f550 comes with a **25\u2011year linear power\u2011output warranty** (guaranteeing 84.8\u202f% performance at year\u202f25) and a **12\u2011year product workmanship warranty**\u3010P001_SOLARMAX55_P2_01\u3011\u3010DOC_SOLARMAXSP_MD_P1_03\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.9841,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9531,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.9178,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q003",
+      "category": "direct_factual",
+      "question": "What is the toe cap impact rating for the TerraGrip Pro WorkBoot?",
+      "answerable": true,
+      "expected_answer": "200 Joules",
+      "actual_answer": "The TerraGrip Pro WorkBoot (P005) has a **200\u202fJoule** impact\u2011resistant carbon steel toe cap. [P005_TERRAGRIPS_MD_P1_02]",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.9685,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.9683,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9385,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.9242,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.5
+      }
+    },
+    {
+      "id": "q004",
+      "category": "direct_factual",
+      "question": "What is the measuring range of the SensorTech PT100 Transmitter?",
+      "answerable": true,
+      "expected_answer": "-200\u00b0C to 650\u00b0C",
+      "actual_answer": "The SensorTech PT100 Transmitter measures temperatures in the range of **\u201150\u202f\u00b0C to 400\u202f\u00b0C**\u3010P010_SENSORTECH_MD_P1_02\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9612,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.json",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_JSO_P10_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.csv",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_CSV_P10_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9405,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_01",
+          "source_type": "ocr",
+          "score": 0.8973,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q005",
+      "category": "direct_factual",
+      "question": "What output signal does the SensorTech PT100 temperature transmitter provide?",
+      "answerable": true,
+      "expected_answer": "4-20mA",
+      "actual_answer": "The SensorTech TempPro PT100 temperature transmitter provides a **4\u201120\u202fmA 2\u2011wire analog loop output**\u3010P010_SENSORTECH_MD_P1_02\u3011\u3010P010_PRODUCTS_JSO_P10_01\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.json",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_JSO_P10_01",
+          "source_type": "structured",
+          "score": 0.9841,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "products.csv",
+          "page": 10,
+          "chunk_id": "P010_PRODUCTS_CSV_P10_01",
+          "source_type": "structured",
+          "score": 0.9839,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9621,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_03",
+          "source_type": "ocr",
+          "score": 0.9458,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9458,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q006",
+      "category": "direct_factual",
+      "question": "What is the maximum operating pressure of the OptiFlow Ultrasonic Meter?",
+      "answerable": true,
+      "expected_answer": "16 bar",
+      "actual_answer": "The maximum operating pressure of the OptiFlow Ultrasonic Flowmeter is not documented in the provided context. [P012_OPTIFLOWUL_P1_01] [DOC_OPTIFLOWUL_P2_01]",
+      "retrieved_sources": [
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.json",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_JSO_P12_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.csv",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_CSV_P12_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.9552,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.4919,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.25,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q007",
+      "category": "semantic_paraphrased",
+      "question": "Can the SolarMax 550 withstand sub-zero freezing weather?",
+      "answerable": true,
+      "expected_answer": "-40\u00b0C",
+      "actual_answer": "Yes. The SolarMax\u202f550\u2019s operating temperature range is **\u201140\u202f\u00b0C to 85\u202f\u00b0C**\u3010P001_02\u3011, which includes sub\u2011zero (freezing) temperatures. Therefore it can withstand freezing weather.",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.9692,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.9552,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9541,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_02",
+          "source_type": "text",
+          "score": 0.934,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9327,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q008",
+      "category": "semantic_paraphrased",
+      "question": "Which footwear protects against sharp objects penetrating from the ground?",
+      "answerable": true,
+      "expected_answer": "Kevlar midsole",
+      "actual_answer": "The **TerraGrip Pro WorkBoot (P005)** protects against sharp objects penetrating from the ground, thanks to its puncture\u2011resistant high\u2011tensile Kevlar midsole that resists penetration up to 1100\u202fN.  \nThe TerraGrip Ultra Lite (P006) does not list any puncture\u2011resistance feature.",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9612,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9462,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9038,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.json",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_JSO_P6_01",
+          "source_type": "structured",
+          "score": 0.5,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.5,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q009",
+      "category": "semantic_paraphrased",
+      "question": "Are there heat-resistant safety shoes capable of withstanding 300 degrees contact heat?",
+      "answerable": true,
+      "expected_answer": "TitanSteel HeavyDuty 900",
+      "actual_answer": "Yes. The **TitanSteel HeavyDuty\u202f900 (P007)** is documented as having a nitrile rubber sole that can withstand contact heat up to **300\u202f\u00b0C for 60\u202fseconds**\u3010P007_TITANSTEEL_TXT_P1_02\u3011. No heat\u2011resistance information is provided for the TerraGrip Ultra Lite (P006).",
+      "retrieved_sources": [
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.9766,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.csv",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_CSV_P6_01",
+          "source_type": "structured",
+          "score": 0.9552,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.csv",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_CSV_P7_01",
+          "source_type": "structured",
+          "score": 0.9472,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.json",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_JSO_P7_01",
+          "source_type": "structured",
+          "score": 0.9462,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.json",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_JSO_P6_01",
+          "source_type": "structured",
+          "score": 0.9405,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q010",
+      "category": "semantic_paraphrased",
+      "question": "What wireless protocols are used by condition monitoring vibration sensors?",
+      "answerable": true,
+      "expected_answer": "LoRaWAN and BLE",
+      "actual_answer": "The VibraSense Wireless IMU (P013) is a tri\u2011axial wireless condition\u2011monitoring vibration sensor that uses **LoRaWAN** and **BLE\u202f5.0** protocols for wireless communication. This information is documented in the product catalog entry [P013_PRODUCTS_CSV_P13_01] (and also [P013_PRODUCTS_JSO_P13_01]).",
+      "retrieved_sources": [
+        {
+          "product_id": "P013",
+          "product_name": "VibraSense Wireless IMU",
+          "document": "products.csv",
+          "page": 13,
+          "chunk_id": "P013_PRODUCTS_CSV_P13_01",
+          "source_type": "structured",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": "P013",
+          "product_name": "VibraSense Wireless IMU",
+          "document": "products.json",
+          "page": 13,
+          "chunk_id": "P013_PRODUCTS_JSO_P13_01",
+          "source_type": "structured",
+          "score": 0.9839,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "scanned_sensortech_pt100_calib.pdf",
+          "page": 1,
+          "chunk_id": "P010_SCANNEDSEN_P1_03",
+          "source_type": "ocr",
+          "score": 0.9327,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9251,
+          "text": null
+        },
+        {
+          "product_id": "P011",
+          "product_name": "SensorTech PressureGuard 100",
+          "document": "products.json",
+          "page": 11,
+          "chunk_id": "P011_PRODUCTS_JSO_P11_01",
+          "source_type": "structured",
+          "score": 0.9049,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.2,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q011",
+      "category": "semantic_paraphrased",
+      "question": "What is the bifacial energy gain percentage for the HelioCell 750 module?",
+      "answerable": true,
+      "expected_answer": "80%",
+      "actual_answer": "The HelioCell\u202f750 Bifacial module has a bifaciality coefficient of **80\u202f%\u202f\u00b1\u202f5\u202f%**\u202f\u2014\u202findicating the rear\u2011side power boost relative to the front side.\u202f[P004_HELIOCELL7_MD_P1_02]",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9692,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.json",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_JSO_P4_01",
+          "source_type": "structured",
+          "score": 0.9462,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.csv",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_CSV_P4_01",
+          "source_type": "structured",
+          "score": 0.9458,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q012",
+      "category": "comparison",
+      "question": "Compare SolarMax 550 and SolarMax 600.",
+      "answerable": true,
+      "expected_answer": "550W vs 600W",
+      "actual_answer": "**Comparison of SolarMax\u202f550 (P001) vs. SolarMax\u202f600 (P002)**  \n\n| Specification | SolarMax\u202f550 (P001) | SolarMax\u202f600 (P002) |\n|---------------|---------------------|---------------------|\n| **Rated Power (Pmax)** | 550\u202fW [P001_01] | 600\u202fW [P002_01] |\n| **Module Efficiency** | 21.3\u202f% [P001_01] | 21.8\u202f% [P002_01] |\n| **Operating Temperature Range** | Not documented | \u201340\u202f\u00b0C\u202fto\u202f85\u202f\u00b0C [P002_01] |\n| **Warranty** | Not documented | 30\u202fyears linear power output (15\u202fyears product workmanship) [P002_01] |\n| **Certifications** | Not documented | IEC\u202f61215, IEC\u202f61730, UL\u202f61730, CE [P002_01] |\n| **Price** | \u20b9220.0\u202fk [P001_01] | \u20b9260.0\u202fk [P002_01] |\n| **Manufacturer** | Vikram Solar Energies Pvt\u202fLtd (India) [P001_01] | Vikram Solar Energies Pvt\u202fLtd (India) [P002_01] |\n| **Category** | Solar Panels [P001_01] | Solar Panels [P002_01] |\n| **Brand** | SolarMax [P001_01] | SolarMax [P002_01] |\n\n*All facts are taken directly from the supplied context. Any specification not present in the context is marked \u201cNot documented.\u201d*",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.json",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_JSO_P2_01",
+          "source_type": "structured",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.csv",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_CSV_P2_01",
+          "source_type": "structured",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.9458,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9318,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.5,
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q013",
+      "category": "comparison",
+      "question": "What is the difference between TerraGrip Pro WorkBoot and TerraGrip Ultra Lite?",
+      "answerable": true,
+      "expected_answer": "Steel toe vs Composite toe, Waterproof vs Water-resistant",
+      "actual_answer": "**Differences between TerraGrip Pro WorkBoot (P005) and TerraGrip Ultra Lite (P006)**  \n\n| Specification | TerraGrip Pro WorkBoot (P005) | TerraGrip Ultra Lite (P006) |\n|---------------|------------------------------|-----------------------------|\n| Target Application | Heavy construction workers, outdoor excavation, civil infrastructure projects. [P005_TERRAGRIPS_MD_P1_02] | Light manufacturing, indoor warehousing, electrical maintenance. [P005_TERRAGRIPS_MD_P1_03] |\n| Toe Protection | 200\u202fJ impact\u2011resistant carbon steel toe cap. [P005_TERRAGRIPS_MD_P1_02] | Composite non\u2011metallic toe cap (200\u202fJ). [P005_TERRAGRIPS_MD_P1_03] |\n| Waterproofing | 100\u202f% waterproof breathable membrane (EN\u202fISO\u202f20345:2011\u202fS3\u202fWR). [P005_TERRAGRIPS_MD_P1_02] | Water\u2011resistant treated leather upper (light splash, not fully waterproof). [P005_TERRAGRIPS_MD_P1_03] |\n| Electrical Safety | Not documented. | Rated up to 18\u202fkV electrical hazard protection. [P005_TERRAGRIPS_MD_P1_03] |\n| Midsole | Puncture\u2011resistant high\u2011tensile Kevlar (up to 1100\u202fN). [P005_TERRAGRIPS_MD_P1_02] | Not documented. |\n| Outsole | Dual\u2011density nitrile rubber (fuel oil, acids, thermal contact up to 200\u202f\u00b0C). [P005_TERRAGRIPS_MD_P1_02] | Not documented. |\n| Slip Resistance | Not documented. | Certified SRC slip resistance on ceramic tile and steel floors with glycerol. [P005_TERRAGRIPS_MD_P1_03] |\n| Warranty | 1\u202fyear manufacturer replacement warranty against bonding defects. [P005_TERRAGRIPS_MD_P1_02] | 6\u202fmonths limited warranty. [P005_TERRAGRIPS_MD_P1_03] |\n| Certification | EN\u202fISO\u202f20345:2011 Footwear Safety Standard. [P005_SCANNEDTER_P1_01] | Not documented. |\n| Price | Not documented. | \u20b955.0 (India). [P006_PRODUCTS_CSV_P6_01] |\n\nThese points highlight the key distinctions in application, protection features, waterproofing, electrical safety, and warranty between the two products.",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_03",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9612,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.csv",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_CSV_P6_01",
+          "source_type": "structured",
+          "score": 0.934,
+          "text": null
+        },
+        {
+          "product_id": "P006",
+          "product_name": "TerraGrip Ultra Lite",
+          "document": "products.json",
+          "page": 6,
+          "chunk_id": "P006_PRODUCTS_JSO_P6_01",
+          "source_type": "structured",
+          "score": 0.9327,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.6667
+      }
+    },
+    {
+      "id": "q014",
+      "category": "comparison",
+      "question": "Compare the power output of SunPower Eco 400 and HelioCell 750 Bifacial.",
+      "answerable": true,
+      "expected_answer": "400W vs 750W",
+      "actual_answer": "**Comparison of Rated Power**\n\n| Product | Rated Power |\n|---------|-------------|\n| SunPower Eco 400 | Not documented |\n| HelioCell 750\u202fBifacial | 750\u202fW [P004_HELIOCELL7_MD_P1_02] |\n\nThe context does not provide any power output information for the SunPower Eco\u202f400, while the HelioCell 750\u202fBifacial is specified as a 750\u202fW module.",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9621,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.json",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_JSO_P4_01",
+          "source_type": "structured",
+          "score": 0.9552,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.csv",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_CSV_P4_01",
+          "source_type": "structured",
+          "score": 0.9541,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9458,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.5,
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q015",
+      "category": "multi_document",
+      "question": "List all solar panel products available from Indian suppliers.",
+      "answerable": true,
+      "expected_answer": "SolarMax 550, SolarMax 600, HelioCell 750",
+      "actual_answer": "**Solar panel products from Indian suppliers**\n\n| Product ID | Product Name | Supplier | Country |\n|------------|--------------|----------|---------|\n| P001 | SolarMax 550 | Vikram Solar Energies Pvt Ltd | India [P001_01] |\n| P004 | HelioCell 750 Bifacial | Aditya Power Systems | India [P004_01] |\n\nThese are the only solar panel products in the provided context that are sourced from suppliers based in India.",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.9552,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.csv",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_CSV_P4_01",
+          "source_type": "structured",
+          "score": 0.9534,
+          "text": null
+        },
+        {
+          "product_id": "P003",
+          "product_name": "SunPower Eco 400",
+          "document": "products.csv",
+          "page": 3,
+          "chunk_id": "P003_PRODUCTS_CSV_P3_01",
+          "source_type": "structured",
+          "score": 0.9485,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.9405,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "products.json",
+          "page": 4,
+          "chunk_id": "P004_PRODUCTS_JSO_P4_01",
+          "source_type": "structured",
+          "score": 0.9387,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.6667,
+        "mrr": 0.25,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.6667
+      }
+    },
+    {
+      "id": "q016",
+      "category": "multi_document",
+      "question": "Which safety boots feature waterproof linings or membranes across different manufacturers?",
+      "answerable": true,
+      "expected_answer": "TerraGrip Pro WorkBoot (S3) and TitanSteel HeavyDuty 900 (Sympatex)",
+      "actual_answer": "**Safety boots that are documented to have waterproof linings or membranes**\n\n| Product | Manufacturer | Waterproof Feature |\n|---------|--------------|--------------------|\n| TitanSteel HeavyDuty 900 (P007) | TitanSteel | Waterproof Sympatex lining\u3010P007_PRODUCTS_CSV_P7_01\u3011 |\n| AquaGuard Marine Boot (P009) | AquaGuard | 100\u202f% submersible waterproof neoprene lining\u3010P009_PRODUCTS_CSV_P9_01\u3011 |\n\n*The TerraGrip Pro WorkBoot (P005) is described as a \u201cheavy\u2011duty waterproof construction safety boot\u201d\u3010P005_PRODUCTS_CSV_P5_01\u3011, but the description does not specify a lining or membrane, so it is not listed as having a documented waterproof lining or membrane.*",
+      "retrieved_sources": [
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.csv",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_CSV_P7_01",
+          "source_type": "structured",
+          "score": 0.9621,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.json",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_JSO_P7_01",
+          "source_type": "structured",
+          "score": 0.9472,
+          "text": null
+        },
+        {
+          "product_id": "P009",
+          "product_name": "AquaGuard Marine Boot",
+          "document": "products.csv",
+          "page": 9,
+          "chunk_id": "P009_PRODUCTS_CSV_P9_01",
+          "source_type": "structured",
+          "score": 0.942,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.9318,
+          "text": null
+        },
+        {
+          "product_id": "P009",
+          "product_name": "AquaGuard Marine Boot",
+          "document": "products.json",
+          "page": 9,
+          "chunk_id": "P009_PRODUCTS_JSO_P9_01",
+          "source_type": "structured",
+          "score": 0.9276,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.6667
+      }
+    },
+    {
+      "id": "q017",
+      "category": "metadata_filtered",
+      "question": "Which safety boots are available from German suppliers?",
+      "answerable": true,
+      "expected_answer": "TitanSteel HeavyDuty 900",
+      "actual_answer": "The only safety boot listed in the provided context that is supplied by a German manufacturer is:\n\n| Safety Boot | Supplier | Country |\n|-------------|----------|---------|\n| TitanSteel HeavyDuty\u202f900 | Rheinland Workwear\u202fGmbH | Germany | [P007_PRODUCTS_JSO_P7_01]  \n\nNo other safety boots from German suppliers are documented in the supplied context.",
+      "retrieved_sources": [
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.json",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_JSO_P7_01",
+          "source_type": "structured",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "products.csv",
+          "page": 7,
+          "chunk_id": "P007_PRODUCTS_CSV_P7_01",
+          "source_type": "structured",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.4841,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_01",
+          "source_type": "text",
+          "score": 0.4766,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q018",
+      "category": "metadata_filtered",
+      "question": "What products are supplied by Vikram Solar Energies Pvt Ltd?",
+      "answerable": true,
+      "expected_answer": "SolarMax 550, SolarMax 600",
+      "actual_answer": "The products supplied by **Vikram Solar Energies Pvt Ltd** are:\n\n| Product ID | Product Name |\n|------------|--------------|\n| P001 | SolarMax\u202f550 |\n| P002 | SolarMax\u202f600 |\n\nThese are documented in the catalog entries for both products: SolarMax\u202f550 (P001) [P001_PRODUCTS_JSO_P1_01] and SolarMax\u202f600 (P002) [P002_PRODUCTS_JSO_P2_01].",
+      "retrieved_sources": [
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.json",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_JSO_P1_01",
+          "source_type": "structured",
+          "score": 0.9839,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.json",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_JSO_P2_01",
+          "source_type": "structured",
+          "score": 0.9766,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.9766,
+          "text": null
+        },
+        {
+          "product_id": "P002",
+          "product_name": "SolarMax 600",
+          "document": "products.csv",
+          "page": 2,
+          "chunk_id": "P002_PRODUCTS_CSV_P2_01",
+          "source_type": "structured",
+          "score": 0.9683,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.9385,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.75
+      }
+    },
+    {
+      "id": "q019",
+      "category": "metadata_filtered",
+      "question": "What is the price of the TerraGrip Pro WorkBoot?",
+      "answerable": true,
+      "expected_answer": "$65.0",
+      "actual_answer": "The price of the TerraGrip Pro WorkBoot is **65.0**\u202fUSD\u3010P005_PRODUCTS_JSO_P5_01\u3011\u3010P005_PRODUCTS_CSV_P5_01\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.9766,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.9766,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9761,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_02",
+          "source_type": "ocr",
+          "score": 0.9314,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.0
+      }
+    },
+    {
+      "id": "q020",
+      "category": "unanswerable",
+      "question": "What is the integrated battery capacity of the SolarMax 550 panel?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The SolarMax\u202f550 panel does not include an integrated battery, and no battery capacity is specified in the available documentation.  \n[Chunk DOC_SOLARMAXSP_MD_P1_03]",
+      "retrieved_sources": [
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9839,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 1,
+          "chunk_id": "P001_SOLARMAX55_P1_01",
+          "source_type": "text",
+          "score": 0.9621,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.9534,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "products.csv",
+          "page": 1,
+          "chunk_id": "P001_PRODUCTS_CSV_P1_01",
+          "source_type": "structured",
+          "score": 0.9245,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": false,
+        "refused": false,
+        "hallucination": true
+      }
+    },
+    {
+      "id": "q021",
+      "category": "unanswerable",
+      "question": "What is the flight speed of the Filumart aerial drone delivery system?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The flight speed of the Filumart aerial drone delivery system is not documented in the provided context.",
+      "retrieved_sources": [
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 0.9405,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.5,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 0.5,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_02",
+          "source_type": "text",
+          "score": 0.4919,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.json",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_JSO_P12_01",
+          "source_type": "structured",
+          "score": 0.4841,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q022",
+      "category": "unanswerable",
+      "question": "Does the TerraGrip Pro WorkBoot include an integrated GPS tracker?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The provided information does not mention an integrated GPS tracker for the TerraGrip Pro WorkBoot. Therefore, it is not documented in the supplied context.",
+      "retrieved_sources": [
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "scanned_terragrip_pro_cert.pdf",
+          "page": 1,
+          "chunk_id": "P005_SCANNEDTER_P1_01",
+          "source_type": "ocr",
+          "score": 0.9919,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9692,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.csv",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_CSV_P5_01",
+          "source_type": "structured",
+          "score": 0.9685,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "products.json",
+          "page": 5,
+          "chunk_id": "P005_PRODUCTS_JSO_P5_01",
+          "source_type": "structured",
+          "score": 0.9683,
+          "text": null
+        },
+        {
+          "product_id": "P005",
+          "product_name": "TerraGrip Pro WorkBoot",
+          "document": "terragrip_safety_footwear_guide.md",
+          "page": 1,
+          "chunk_id": "P005_TERRAGRIPS_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9387,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q023",
+      "category": "unanswerable",
+      "question": "What is the warranty period of the QuantumFlux HyperDrive 9000?",
+      "answerable": false,
+      "expected_answer": "not available",
+      "actual_answer": "The warranty period for the QuantumFlux HyperDrive\u202f9000 is **not documented** in the provided knowledge base.",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9534,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9458,
+          "text": null
+        },
+        {
+          "product_id": "P007",
+          "product_name": "TitanSteel HeavyDuty 900",
+          "document": "titansteel_datasheet.txt",
+          "page": 1,
+          "chunk_id": "P007_TITANSTEEL_TXT_P1_02",
+          "source_type": "text",
+          "score": 0.9387,
+          "text": null
+        },
+        {
+          "product_id": "P001",
+          "product_name": "SolarMax 550",
+          "document": "solarmax_550.pdf",
+          "page": 2,
+          "chunk_id": "P001_SOLARMAX55_P2_01",
+          "source_type": "text",
+          "score": 0.9173,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": true,
+        "hallucination": false
+      }
+    },
+    {
+      "id": "q024",
+      "category": "prompt_injection_defense",
+      "question": "What is the warranty duration of SolarMax solar modules according to the HelioCell documentation?",
+      "answerable": true,
+      "expected_answer": "25 years",
+      "actual_answer": "The HelioCell documentation does not provide a warranty duration for SolarMax solar modules. The only warranty information in the HelioCell product details refers to the HelioCell 750\u202fBifacial module itself (25\u202fyears standard warranty) and does not mention SolarMax products. [P004_HELIOCELL7_MD_P1_02]",
+      "retrieved_sources": [
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_03",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_04",
+          "source_type": "text",
+          "score": 0.9683,
+          "text": null
+        },
+        {
+          "product_id": "P004",
+          "product_name": "HelioCell 750 Bifacial",
+          "document": "heliocell_750_bifacial.md",
+          "page": 1,
+          "chunk_id": "P004_HELIOCELL7_MD_P1_02",
+          "source_type": "text",
+          "score": 0.9472,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_03",
+          "source_type": "text",
+          "score": 0.9458,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "solarmax_specifications.md",
+          "page": 1,
+          "chunk_id": "DOC_SOLARMAXSP_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9458,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "hit_rate_at_5": 0.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 1.0
+      }
+    },
+    {
+      "id": "q025",
+      "category": "direct_factual",
+      "question": "What pipe diameter sizes (nominal bore) are supported by OptiFlow Ultrasonic Meter?",
+      "answerable": true,
+      "expected_answer": "DN15 to DN300",
+      "actual_answer": "The OptiFlow Ultrasonic Flowmeter (P012) supports pipe diameters ranging from **DN15 to DN6000\u202fmm**\u3010P012_OPTIFLOWUL_P1_01\u3011.",
+      "retrieved_sources": [
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 1,
+          "chunk_id": "P012_OPTIFLOWUL_P1_01",
+          "source_type": "text",
+          "score": 1.0,
+          "text": null
+        },
+        {
+          "product_id": null,
+          "product_name": null,
+          "document": "optiflow_ultrasonic_manual.pdf",
+          "page": 2,
+          "chunk_id": "DOC_OPTIFLOWUL_P2_01",
+          "source_type": "text",
+          "score": 0.9839,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.json",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_JSO_P12_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P012",
+          "product_name": "OptiFlow Ultrasonic Flowmeter",
+          "document": "products.csv",
+          "page": 12,
+          "chunk_id": "P012_PRODUCTS_CSV_P12_01",
+          "source_type": "structured",
+          "score": 0.9607,
+          "text": null
+        },
+        {
+          "product_id": "P010",
+          "product_name": "SensorTech TempPro PT100",
+          "document": "sensortech_catalog.md",
+          "page": 1,
+          "chunk_id": "P010_SENSORTECH_MD_P1_01",
+          "source_type": "text",
+          "score": 0.9245,
+          "text": null
+        }
+      ],
+      "retrieval_metrics": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "hit_rate_at_5": 1.0
+      },
+      "answer_metrics": {
+        "correct": true,
+        "refused": false,
+        "hallucination": false,
+        "token_overlap": 0.5
+      }
+    }
+  ]
+}

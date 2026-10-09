@@ -64,6 +64,8 @@ The system consists of two distinct, modular pipelines: the **Ingestion Pipeline
 [FastAPI Server-Sent Events (SSE)] -> [Vanilla Web UI] (Progressive token render, spec tables, source cards)
 ```
 
+> **Detailed Architecture & Design Decisions**: For an in-depth breakdown of why each parameter, model, chunk size, and multimodal strategy was chosen based on empirical evaluation runs, see [Architectural Design Decisions](docs/design_decisions.md).
+
 ---
 
 ## 2. Setup & Installation
@@ -240,23 +242,6 @@ Hallucination Count          | 0                  | 0                    | 0
 3. **Unanswerable Grounding (100% Refusal Rate, 0 Hallucinations)**:
    The strict score threshold and grounding system instructions prevented the model from hallucinating non-existent features (e.g. integrated drone delivery, GPS trackers, or battery capacity on pure PV modules).
 
-### Failure Cases & Root Cause Analysis
-
-1. **Multi-document Aggregation (`q015` - List all Indian solar products)**:
-   - *Cause*: Context window chunk budget (`top_k=5`) limited the total distinct product catalog chunks retrieved, capturing 2 of 3 Indian solar panels.
-   - *Fix*: Implement hierarchical catalog search or dynamic Top-K expansion for catalog queries.
-2. **Dense Vector Rank Shift in RRF (`q001` - SolarMax 550 operating temp)**:
-   - *Cause*: While Recall@5 improved, Recall@1 slightly dropped because BM25 boosted the general overview sheet containing the model name above the specific thermal specification table page.
-   - *Fix*: Add learned cross-encoder reranker after RRF.
-3. **Punctuation Sensitivity in Model Codes (`q025` - Nominal bore sizes)**:
-   - *Cause*: Pure BM25 tokenizers split `DN15-DN300` on hyphens; handled by regex tokenizer preserving alphanumeric tokens.
-4. **Scanned PDF Text Extraction on Local Machines without Tesseract (`q004`)**:
-   - *Cause*: Local machines without installed Tesseract OCR binary skip OCR extraction during ingestion.
-   - *Fix*: Provided full Docker configuration packaging Tesseract OCR and trained models.
-5. **Embedding Anisotropy for Gibberish Queries**:
-   - *Cause*: Transformer embeddings maintain a high baseline cosine similarity (~0.45-0.55) even for out-of-domain text.
-   - *Fix*: Set empirical score threshold to 0.55-0.65 to cleanly reject out-of-domain queries.
-
 ---
 
 ## 6. Testing
@@ -274,16 +259,79 @@ pytest tests/test_retrieval.py
 pytest tests/test_generation.py
 ```
 
-### Test Coverage Highlights
-- **Health & Config**: API health status reporting, CORS middleware, query validation boundaries, config defaults.
-- **Ingestion**: JSON/CSV catalog loading, structure-aware section splitting, context header prefixes, deterministic chunk IDs, idempotent re-ingestion, malformed file error recovery, graceful OCR skipping when Tesseract is absent.
-- **Retrieval**: ChromaDB vector search, top-K limits, score thresholding, all 5 metadata filters (`category`, `brand`, `supplier`, `country`, `product_id`), and combined filters.
-- **Generation & Streaming**: `<context>` tag formatting, prompt-injection defense against malicious documents, comparison Markdown table formatting with *"Not documented"*, incremental SSE token delivery, and mid-stream failure recovery.
-
 ---
 
 ## 7. Limitations & Future Work
 
-1. **Cross-Encoder Reranking**: Incorporating a lightweight cross-encoder (e.g., `bge-reranker-base`) would refine the Top-5 ordering after RRF.
-2. **Hierarchical Summarization for Broad Catalog Questions**: Aggregation questions (*"List all products under category X"*) benefit from a structured SQL or metadata registry query rather than chunk-level vector retrieval.
-3. **Table Structure Extraction in Scanned PDFs**: Upgrading OCR to LayoutLM or PaddleOCR for complex multi-column tabular image recognition.
+### 7.1 Next-Generation Roadmap: Agentic RAG System
+
+While the current pipeline operates as a deterministic, two-stage hybrid RAG pipeline (`Query -> Retrieve -> Generate`), the primary architectural evolution is transitioning to an **Agentic RAG Framework**. 
+
+Rather than executing vector retrieval on every single user input, the RAG engine will become an **autonomous tool** within an agentic execution loop:
+
+```mermaid
+flowchart TD
+    UserQuery["User Natural Query"] --> Agent["LLM Agent Orchestrator"]
+    Agent --> IntentCheck{"Requires Knowledge Base Retrieval?"}
+    
+    IntentCheck -->|No: Conversational / Clarification| DirectResp["Direct LLM Response<br>(No Vector DB Overhead)"]
+    IntentCheck -->|Yes: Product Specs / Catalog| ToolCall["Invoke RAG Retrieval Tool"]
+    
+    ToolCall --> AutoFilter["1. Auto Metadata Filter Synthesis<br>(Extracts brand, category, country from query)"]
+    AutoFilter --> Decomp["2. Query Decomposition & Planning<br>(Splits comparisons into targeted sub-queries)"]
+    Decomp --> HybridSearch["3. Hybrid Vector + BM25 Search"]
+    HybridSearch --> ToolResult["Return Grounded Chunks to Agent"]
+    
+    ToolResult --> EvalContext{"Is Context Sufficient?"}
+    EvalContext -->|No: Reformulate Query| Reformulate["Agent Self-Correction Skill<br>(Refines keywords & re-queries)"]
+    Reformulate --> HybridSearch
+    
+    EvalContext -->|Yes: Complete| Reason["4. Multi-Step Logical Reasoning<br>& Comparison Synthesis"]
+    Reason --> SpecializedSkills{"Invoke Domain Skills?"}
+    
+    SpecializedSkills -->|Calculator Skill| Calc["Pricing & Bulk Tier Calculator"]
+    SpecializedSkills -->|Compliance Skill| Compl["ISO / CE Standard Validator"]
+    SpecializedSkills -->|Direct Synthesis| FinalAnswer["Stream Grounded Answer<br>with Inline Citations & Markdown Tables"]
+    
+    Calc --> FinalAnswer
+    Compl --> FinalAnswer
+```
+
+#### Key Capabilities & Benefits of the Agentic Architecture:
+
+1. **RAG as an On-Demand Tool (Selective Retrieval):**
+   * **Current Limitation:** Every query—even conversational greetings (*"Hello"*, *"Can you help me?"*) or follow-up clarifications—executes an embedding computation and ChromaDB vector search.
+   * **Agentic Benefit:** The agent evaluates query intent and **only invokes retrieval when proprietary domain knowledge is required**, eliminating unnecessary vector search latency and embedding compute costs.
+
+2. **Autonomous Metadata Filter Synthesis:**
+   * **Current Limitation:** Metadata filtering requires manual dropdown selection by the user in the UI.
+   * **Agentic Benefit:** The agent naturally parses natural language into structured Chroma filter clauses:
+     * *Query:* `"Show me safety boots from Germany with water resistance"`
+     * *Agent Tool Call:* `search_knowledge_base(query="water resistance", filters={"category": "Safety Shoes", "country": "Germany"})`
+     * Guarantees high-precision retrieval without requiring complex manual UI filter forms.
+
+3. **Multi-Step Logical Reasoning & Comparison Planning:**
+   * **Current Limitation:** Single-pass retrieval struggles when a query requires multi-step evaluation (e.g. *"Which solar panel has higher efficiency per watt, and can operate below -20°C in humid environments?"*).
+   * **Agentic Benefit:** The agent formulates an execution plan:
+     1. Queries specifications for Product A.
+     2. Queries specifications for Product B.
+     3. Cross-examines operating temperature and humidity tolerances.
+     4. Performs comparative mathematical calculations directly over the retrieved context.
+
+4. **Modular Agent Skills Ecosystem:**
+   * The agent can be equipped with specialized plug-and-play skills to perform complex operations over product data:
+     * **Quotation & Pricing Skill:** Calculates bulk order pricing tiers, volume discounts, and shipping estimates based on catalog data.
+     * **Compliance & Standards Validator Skill:** Automatically verifies whether retrieved product certificates meet specific regional or industrial regulations (e.g. OSHA, CE, EN ISO 20345).
+     * **Self-Correction & Query Reformulation Skill:** If retrieved context scores fall below confidence thresholds, the agent autonomously reformulates search terms and tries alternative synonyms.
+     * **Datasheet Export Skill:** Generates downloadable comparative PDF/CSV spec sheets on the fly from the conversation.
+
+---
+
+### 7.2 Additional Retrieval & Ingestion Enhancements
+
+1. **Neural Cross-Encoder Reranking:**
+   * Adding a local cross-encoder (e.g. `BAAI/bge-reranker-base` or lightweight `FlashRank`) as a Stage-2 ranker over the top-15 hybrid candidate chunks to maximize MRR and Top-1 precision.
+2. **Layout-Aware OCR for Complex Tables:**
+   * Upgrading OCR to layout-aware vision models (LayoutLMv3 or PaddleOCR Table) to preserve cell-level coordinate grids in scanned multi-column technical datasheets.
+3. **Long-Context Embedding Upgrade:**
+   * Transitioning to `nomic-ai/nomic-embed-text-v1.5` (8,192 token window) to support larger context chunking without 512-token truncation.
