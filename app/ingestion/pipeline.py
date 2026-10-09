@@ -68,7 +68,7 @@ class IngestionPipeline:
                 stats["files_processed"] += 1
 
                 for page in pages:
-                    if page.source_type == "ocr":
+                    if page.source_type == "ocr" or page.ocr_confidence is not None:
                         stats["pages_ocred"] += 1
 
                     chunks = chunker.chunk_page(page)

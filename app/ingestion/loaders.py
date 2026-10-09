@@ -10,7 +10,7 @@ import pymupdf
 
 from app.config import get_settings
 from app.ingestion.models import RawDocumentPage
-from app.ingestion.ocr import ocr_image, is_tesseract_available
+from app.ingestion.ocr import ocr_image, ocr_image_bytes, ocr_pixmap, is_ocr_available, is_tesseract_available
 from app.ingestion.normalizer import clean_text
 
 logger = logging.getLogger(__name__)
@@ -171,7 +171,7 @@ class DocumentLoaderRegistry:
         ]
 
     def _load_pdf(self, file_path: Path) -> List[RawDocumentPage]:
-        """Load PDF with automatic OCR fallback for scanned pages."""
+        """Load PDF with automatic OCR fallback for scanned pages and embedded image OCR for hybrid pages."""
         pages: List[RawDocumentPage] = []
         doc = pymupdf.open(str(file_path))
         pid, pname = infer_product_info_from_filename(file_path.name, self.catalog)
@@ -180,8 +180,13 @@ class DocumentLoaderRegistry:
             extracted = page.get_text().strip()
             cleaned = clean_text(extracted)
 
-            # Check if text is sufficient or page is image-based/scanned
-            if len(cleaned) >= self.settings.ocr_min_text_chars:
+            is_scanned = (
+                self.settings.ocr_force_pdf_ocr
+                or len(cleaned) < self.settings.ocr_min_text_chars
+            )
+
+            if not is_scanned:
+                # Text-based page: check if there are embedded scanned images
                 page_pid = pid
                 page_pname = pname
                 if not page_pid:
@@ -190,24 +195,72 @@ class DocumentLoaderRegistry:
                         page_pid = m.group(1)
                         page_pname = self.catalog[page_pid].get("product_name")
 
+                combined_text = cleaned
+                embedded_confs: List[float] = []
+
+                if self.settings.ocr_extract_embedded_images:
+                    images = page.get_images(full=True)
+                    for img_idx, img_meta in enumerate(images, start=1):
+                        xref = img_meta[0]
+                        try:
+                            base_img = doc.extract_image(xref)
+                        except Exception as e:
+                            logger.debug(f"Failed to extract image xref {xref} from {file_path.name}: {e}")
+                            continue
+
+                        w = base_img.get("width", 0)
+                        h = base_img.get("height", 0)
+                        if w < self.settings.ocr_min_image_dim or h < self.settings.ocr_min_image_dim:
+                            continue
+
+                        img_text, conf, low = ocr_image_bytes(base_img["image"])
+                        cleaned_img = clean_text(img_text)
+                        if cleaned_img:
+                            logger.info(
+                                f"Extracted OCR text from embedded image {img_idx} on page {p_idx} of '{file_path.name}' "
+                                f"({len(cleaned_img)} chars, conf={conf}%)"
+                            )
+                            combined_text += f"\n\n### [Embedded Scanned Image: Figure {img_idx} on Page {p_idx}]\n{cleaned_img}"
+                            if conf is not None:
+                                embedded_confs.append(conf)
+
+                mean_conf = (sum(embedded_confs) / len(embedded_confs)) if embedded_confs else None
+
                 pages.append(
                     RawDocumentPage(
                         document_name=file_path.name,
                         page_number=p_idx,
-                        text=cleaned,
+                        text=combined_text,
                         source_type="text",
+                        ocr_confidence=round(mean_conf, 2) if mean_conf is not None else None,
+                        low_confidence=False,
                         inferred_product_id=page_pid,
                         inferred_product_name=page_pname,
                     )
                 )
             else:
-                # Scanned or image-only page: rasterize at 300 DPI and OCR
+                # Scanned or image-only page: rasterize at configured DPI and OCR
                 logger.info(
-                    f"Page {p_idx} of '{file_path.name}' has low text count ({len(cleaned)} chars). Running OCR at 300 DPI..."
+                    f"Page {p_idx} of '{file_path.name}' treated as scanned ({len(cleaned)} chars). Running OCR..."
                 )
-                pix = page.get_pixmap(dpi=300)
-                img = Image.open(io.BytesIO(pix.tobytes("png")))
-                ocr_text, mean_conf, is_low_conf = ocr_image(img)
+                ocr_text = ""
+                mean_conf = None
+                is_low_conf = True
+
+                # Attempt 1: Direct extraction if page has a single full-page image
+                images = page.get_images(full=True)
+                if len(images) == 1:
+                    try:
+                        base_img = doc.extract_image(images[0][0])
+                        ocr_text, mean_conf, is_low_conf = ocr_image_bytes(base_img["image"])
+                    except Exception as e:
+                        logger.debug(f"Direct image extraction failed for page {p_idx}: {e}")
+
+                # Attempt 2: Rasterize page at configured DPI if direct extraction yielded no text
+                if not ocr_text:
+                    pix = page.get_pixmap(dpi=self.settings.ocr_dpi)
+                    ocr_text, mean_conf, is_low_conf = ocr_pixmap(pix)
+
                 cleaned_ocr = clean_text(ocr_text)
 
                 page_pid = pid

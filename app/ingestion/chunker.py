@@ -168,7 +168,7 @@ class StructureAwareChunker:
                     document=page.document_name,
                     page=page.page_number,
                     section=sec_title if sec_title != "General" else None,
-                    source_type=page.source_type,
+                    source_type="ocr" if (page.source_type == "ocr" or (sec_title and "Embedded Scanned Image" in sec_title)) else page.source_type,
                     ocr_confidence=page.ocr_confidence,
                     low_confidence=page.low_confidence,
                 )

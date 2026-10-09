@@ -9,7 +9,7 @@ from app.ingestion.models import RawDocumentPage, Chunk, ChunkMetadata
 from app.ingestion.loaders import DocumentLoaderRegistry
 from app.ingestion.chunker import StructureAwareChunker, generate_deterministic_chunk_id, split_text_by_headings
 from app.ingestion.normalizer import clean_text, normalize_units, fix_hyphenated_linebreaks
-from app.ingestion.ocr import is_tesseract_available, ocr_image
+from app.ingestion.ocr import is_ocr_available, is_tesseract_available, ocr_image
 from app.ingestion.pipeline import IngestionPipeline
 from app.retrieval.embedder import MockEmbedder
 from app.retrieval.vector_store import ChromaVectorStore
@@ -209,9 +209,9 @@ def test_resilience_to_bad_file(tmp_path, temp_data_dir):
 
 
 def test_ocr_handling(tmp_path):
-    """Verify OCR execution if Tesseract is installed, or skip per Spec 12 if absent."""
-    if not is_tesseract_available():
-        pytest.skip("Tesseract OCR binary not installed on system path; skipping per Spec 12.")
+    """Verify OCR execution if an OCR engine is available."""
+    if not is_ocr_available():
+        pytest.skip("No OCR engine available on system; skipping.")
 
     # Create synthetic test image with clean text
     img = Image.new("RGB", (400, 100), color=(255, 255, 255))

@@ -38,6 +38,10 @@ class Settings(BaseSettings):
     ocr_low_conf_word: float = Field(default=30.0, alias="OCR_LOW_CONF_WORD")
     ocr_low_conf_chunk: float = Field(default=60.0, alias="OCR_LOW_CONF_CHUNK")
     tesseract_cmd: str = Field(default="", alias="TESSERACT_CMD")
+    ocr_extract_embedded_images: bool = Field(default=True, alias="OCR_EXTRACT_EMBEDDED_IMAGES")
+    ocr_min_image_dim: int = Field(default=100, alias="OCR_MIN_IMAGE_DIM")
+    ocr_dpi: int = Field(default=300, alias="OCR_DPI")
+    ocr_force_pdf_ocr: bool = Field(default=False, alias="OCR_FORCE_PDF_OCR")
 
     # API & Security
     max_query_chars: int = Field(default=1000, alias="MAX_QUERY_CHARS")

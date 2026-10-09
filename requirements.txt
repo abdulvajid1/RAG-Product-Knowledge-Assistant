@@ -21,4 +21,4 @@ langchain-community>=0.4.0
 langchain-text-splitters>=1.1.0
 langchain-chroma>=1.1.0
 langchain-openai>=1.6.0
-
+rapidocr-onnxruntime>=1.2.0
