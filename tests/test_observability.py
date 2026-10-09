@@ -18,12 +18,14 @@ from app.evaluation.langsmith_eval import (
 )
 
 
-def test_observability_setup_defaults():
+def test_observability_setup_defaults(monkeypatch):
     """Verify that observability safely defaults to disabled/offline mode without API key."""
-    settings = get_settings()
-    # In default test env, no API key is set
-    enabled = setup_observability()
-    assert enabled is False
+    from app.config import Settings
+    offline_settings = Settings(LANGCHAIN_TRACING_V2=False, LANGCHAIN_API_KEY="")
+    monkeypatch.setattr("app.observability.setup.get_settings", lambda: offline_settings)
+    monkeypatch.setattr("app.config.get_settings", lambda: offline_settings)
+    monkeypatch.setattr("app.observability.setup._langsmith_client", None)
+    assert setup_observability() is False
     assert is_tracing_enabled() is False
     assert get_langsmith_client() is None
 

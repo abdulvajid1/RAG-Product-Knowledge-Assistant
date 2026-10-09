@@ -67,13 +67,6 @@ class PromptBuilder:
         clean_context = sanitize_context_for_injection(context.strip()) if context else ""
         clean_query = query.strip()
 
-        comparison_instruction = ""
-        if is_comparison_query(clean_query):
-            comparison_instruction = (
-                "\n\nNOTE: This is a comparison question. Please present the comparison "
-                "in a Markdown table. Mark any missing spec as 'Not documented'."
-            )
-
         if not clean_context:
             return (
                 f"QUESTION:\n{clean_query}\n\n"
@@ -89,7 +82,7 @@ class PromptBuilder:
                 f"{clean_context}\n"
                 f"</context>\n\n"
                 f"QUESTION:\n"
-                f"{clean_query}{comparison_instruction}\n\n"
+                f"{clean_query}\n\n"
                 f"INSTRUCTIONS:\n"
                 f"Answer the question using only the context enclosed in <context> above. "
                 f"Include inline chunk citations like [P001_01]. "

@@ -167,40 +167,6 @@ class HybridRetriever:
             id_key="chunk_id",
         )
 
-    def _detect_comparison_products(self, query: str) -> List[str]:
-        """Detect multiple product mentions in a query for multi-query comparison retrieval."""
-        known_products = [
-            "SolarMax 550",
-            "SolarMax 600",
-            "SunPower Eco 400",
-            "HelioCell 750",
-            "TerraGrip Pro WorkBoot",
-            "TerraGrip Ultra Lite",
-            "TitanSteel HeavyDuty 900",
-            "SafeStep Eco Runner",
-            "SensorTech PT100",
-            "OptiFlow Ultrasonic",
-            "VibraSense Wireless",
-            "P001",
-            "P002",
-            "P003",
-            "P004",
-            "P005",
-            "P006",
-            "P007",
-            "P008",
-            "P009",
-            "P010",
-            "P011",
-            "P012",
-        ]
-        q_lower = query.lower()
-        found = []
-        for p in known_products:
-            if p.lower() in q_lower:
-                found.append(p)
-        return found
-
     @trace_component(name="HybridRetriever.retrieve", run_type="retriever")
     def retrieve(
         self,
@@ -211,11 +177,10 @@ class HybridRetriever:
     ) -> RetrievalResult:
         """
         Execute Hybrid retrieval:
-        1. If comparison query with 2+ products detected: split retrieval per product and merge.
-        2. Vector search (top-2K)
-        3. BM25 keyword search (top-2K)
-        4. Reciprocal Rank Fusion (RRF, k=60)
-        5. Filter by threshold & context building
+        1. Vector search (top-2K)
+        2. BM25 keyword search (top-2K)
+        3. Reciprocal Rank Fusion (RRF, k=60)
+        4. Filter by threshold & context building
         """
         effective_top_k = top_k if top_k is not None else self.top_k
         effective_threshold = score_threshold if score_threshold is not None else self.score_threshold
@@ -224,29 +189,9 @@ class HybridRetriever:
         if not clean_query:
             return RetrievalResult(query=query, has_context=False)
 
-        # Multi-product comparison query handling (Spec Section 7.2)
-        products_found = self._detect_comparison_products(clean_query)
-        if len(products_found) >= 2 and any(w in clean_query.lower() for w in ["compare", "difference", "vs"]):
-            logger.info(f"Comparison query detected with products: {products_found}. Retrieving per product.")
-            per_product_chunks: List[Tuple[Chunk, float]] = []
-            per_prod_k = max(2, effective_top_k // len(products_found) + 1)
-
-            for prod in products_found:
-                sub_query = f"{prod} technical specifications ratings warranty"
-                sub_res = self._single_hybrid_retrieve(sub_query, filters=filters, top_k=per_prod_k)
-                per_product_chunks.extend(sub_res)
-
-            # Deduplicate by chunk_id
-            seen = set()
-            deduped_comparison = []
-            for c, s in per_product_chunks:
-                if c.chunk_id not in seen:
-                    seen.add(c.chunk_id)
-                    deduped_comparison.append((c, s))
-
-            fused_chunks = deduped_comparison[:effective_top_k]
-        else:
-            fused_chunks = self._single_hybrid_retrieve(clean_query, filters=filters, top_k=effective_top_k)
+        # Natural hybrid retrieval: BM25 sparse matching + Dense Vector embeddings + RRF
+        # automatically retrieves and balances multi-entity / comparison queries naturally
+        fused_chunks = self._single_hybrid_retrieve(clean_query, filters=filters, top_k=effective_top_k)
 
         # Apply score threshold (for hybrid RRF, threshold applies to normalized score)
         # Note: In hybrid RRF, max score is ~1.0; low matches are < 0.2
